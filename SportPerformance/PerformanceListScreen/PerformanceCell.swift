@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - ViewModel
 class PerformanceCellViewModel {
 
     enum Repository {
@@ -21,7 +22,6 @@ class PerformanceCellViewModel {
                 return "externaldrive.fill.badge.icloud"
             }
         }
-
         var color: Color {
             switch self {
             case .local:
@@ -33,66 +33,76 @@ class PerformanceCellViewModel {
     }
 
     let name: String
-    let description: String
+    let place: String
     let time: String
     let repository: Repository
 
+    // MARK: Init
     init(
         name: String,
-        description: String,
+        place: String,
         time: String,
         fromRepository: Repository
     ) {
         self.name = name
-        self.description = description
+        self.place = place
         self.time = time
         self.repository = fromRepository
     }
-
 }
 
+// MARK: - View
 struct PerformanceCell: View {
 
     let viewModel: PerformanceCellViewModel
 
+    // MARK: Init
     init(viewModel: PerformanceCellViewModel) {
         self.viewModel = viewModel
     }
 
+    // MARK: Body
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
             Image(systemName: viewModel.repository.icon)
                 .foregroundColor(viewModel.repository.color)
-
             Divider()
                 .background(Color.black)
                 .padding(.vertical, 8)
-
             VStack(alignment: .leading) {
-                Text("Name")
+                Text(viewModel.name)
                     .font(.headline)
-                Text("Description")
-                    .font(.subheadline)
-                Text("Time")
-                    .font(.subheadline)
+                Text(viewModel.place)
+                Text(viewModel.time)
             }
-
+            .font(.subheadline)
             Spacer()
         }
         .padding(.horizontal, 16)
-        .frame(height: 80)
+        .frame(height: 75)
         Divider()
     }
 }
 
+// MARK: - Preview
 #Preview {
-    PerformanceCell(
-        viewModel: PerformanceCellViewModel(
-            name: "Name",
-            description: "Description",
-            time: "Time",
-            fromRepository: .remote
+    VStack {
+        PerformanceCell(
+            viewModel: PerformanceCellViewModel(
+                name: "Name",
+                place: "Description",
+                time: "Time",
+                fromRepository: .remote
+            )
         )
-    )
+        PerformanceCell(
+            viewModel: PerformanceCellViewModel(
+                name: "Name",
+                place: "Description",
+                time: "Time",
+                fromRepository: .local
+            )
+        )
+    }
     .previewLayout(.sizeThatFits)
 }
