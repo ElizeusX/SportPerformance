@@ -18,6 +18,7 @@
 		258941BB2B22189D00657376 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941BA2B22189D00657376 /* MainCoordinator.swift */; };
 		258941BE2B221C1900657376 /* PerformanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941BD2B221C1900657376 /* PerformanceListView.swift */; };
 		258941C02B2387B100657376 /* PerformanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941BF2B2387B100657376 /* PerformanceCell.swift */; };
+		258941C22B23A43200657376 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941C12B23A43200657376 /* Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		258941BA2B22189D00657376 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		258941BD2B221C1900657376 /* PerformanceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceListView.swift; sourceTree = "<group>"; };
 		258941BF2B2387B100657376 /* PerformanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceCell.swift; sourceTree = "<group>"; };
+		258941C12B23A43200657376 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				258941942B2204C800657376 /* LaunchScreen.storyboard */,
 				258941972B2204C800657376 /* Info.plist */,
 				2589418F2B2204C700657376 /* SportPerformance.xcdatamodeld */,
+				258941C12B23A43200657376 /* Constraints.swift */,
 			);
 			path = SportPerformance;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				258941C02B2387B100657376 /* PerformanceCell.swift in Sources */,
+				258941C22B23A43200657376 /* Constraints.swift in Sources */,
 				258941872B2204C700657376 /* AppDelegate.swift in Sources */,
 				258941892B2204C700657376 /* SceneDelegate.swift in Sources */,
 				258941BB2B22189D00657376 /* MainCoordinator.swift in Sources */,
