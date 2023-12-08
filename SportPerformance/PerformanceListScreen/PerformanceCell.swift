@@ -63,12 +63,12 @@ struct PerformanceCell: View {
 
     // MARK: Body
     var body: some View {
-        HStack(alignment: .center, spacing: 16) {
+        HStack(alignment: .center, spacing: Constraints.Padding.standard) {
             Image(systemName: viewModel.repository.icon)
                 .foregroundColor(viewModel.repository.color)
             Divider()
                 .background(Color.black)
-                .padding(.vertical, 8)
+                .padding(.vertical, Constraints.Padding.small)
             VStack(alignment: .leading) {
                 Text(viewModel.name)
                     .font(.headline)
@@ -78,7 +78,7 @@ struct PerformanceCell: View {
             .font(.subheadline)
             Spacer()
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, Constraints.Padding.standard)
         .frame(height: 75)
         Divider()
     }
