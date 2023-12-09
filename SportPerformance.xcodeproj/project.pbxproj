@@ -115,7 +115,7 @@
 			children = (
 				258941C82B24C58100657376 /* Mock */,
 				258941C52B24BD8900657376 /* Models */,
-				258941BC2B221BB300657376 /* PerformanceListScreen */,
+				258941BC2B221BB300657376 /* SportPerformanceList */,
 				258941862B2204C700657376 /* AppDelegate.swift */,
 				258941B92B22188700657376 /* Coordinators */,
 				258941882B2204C700657376 /* SceneDelegate.swift */,
@@ -154,14 +154,14 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
-		258941BC2B221BB300657376 /* PerformanceListScreen */ = {
+		258941BC2B221BB300657376 /* SportPerformanceList */ = {
 			isa = PBXGroup;
 			children = (
 				258941BD2B221C1900657376 /* SportPerformanceListView.swift */,
 				258941C32B24BD0A00657376 /* SportPerformanceListViewModel.swift */,
 				258941BF2B2387B100657376 /* PerformanceCell.swift */,
 			);
-			path = PerformanceListScreen;
+			path = SportPerformanceList;
 			sourceTree = "<group>";
 		};
 		258941C52B24BD8900657376 /* Models */ = {
