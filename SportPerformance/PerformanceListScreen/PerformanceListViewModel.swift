@@ -21,7 +21,7 @@ class PerformanceListViewModel: ObservableObject {
     }
 
     // MARK: Methods
-    func goToAddPerformance() {
-        coordinator?.goToAddPerformance()
+    func goToNewSportPerformance() {
+        coordinator?.goToNewSportPerformance()
     }
 }

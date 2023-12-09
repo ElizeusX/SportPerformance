@@ -45,7 +45,7 @@ private extension PerformanceListView {
         }
     }
     var mainButton: some View {
-        Button(action: viewModel.goToAddPerformance, label: {
+        Button(action: viewModel.goToNewSportPerformance, label: {
             Spacer()
             HStack {
                 Text("Add new")

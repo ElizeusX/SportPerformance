@@ -30,7 +30,7 @@ class MainCoordinator: UINavigationController {
 // MARK: - Delegates
 extension MainCoordinator: PerformanceListCoordinatorDelegate {
 
-    func goToAddPerformance() {
-        // TODO: Add view to add sports performance
+    func goToNewSportPerformance() {
+        // TODO: Add view to new sports performance
     }
 }
