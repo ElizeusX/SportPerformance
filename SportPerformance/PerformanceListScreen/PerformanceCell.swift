@@ -7,30 +7,30 @@
 
 import SwiftUI
 
-// MARK: - ViewModel
-class PerformanceCellViewModel {
+enum Repository: Codable {
+    case local
+    case remote
 
-    enum Repository {
-        case local
-        case remote
-
-        var icon: String {
-            switch self {
-            case .local:
-                return "internaldrive.fill"
-            case .remote:
-                return "externaldrive.fill.badge.icloud"
-            }
-        }
-        var color: Color {
-            switch self {
-            case .local:
-                return .black
-            case .remote:
-                return .blue
-            }
+    var icon: String {
+        switch self {
+        case .local:
+            return "internaldrive.fill"
+        case .remote:
+            return "externaldrive.fill.badge.icloud"
         }
     }
+    var color: Color {
+        switch self {
+        case .local:
+            return .black
+        case .remote:
+            return .blue
+        }
+    }
+}
+
+// MARK: - ViewModel
+class PerformanceCellViewModel {
 
     let name: String
     let place: String
