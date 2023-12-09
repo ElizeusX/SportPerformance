@@ -11,10 +11,12 @@ struct PerformanceListView: View {
 
     @StateObject private var viewModel: PerformanceListViewModel
 
+    // MARK: Init
     init(viewModel: PerformanceListViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
 
+    // MARK: Body
     var body: some View {
         Text("Sport Performance")
         ScrollView {
@@ -34,6 +36,7 @@ struct PerformanceListView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     PerformanceListView(
         viewModel: PerformanceListViewModel()
