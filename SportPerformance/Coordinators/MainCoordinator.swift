@@ -12,11 +12,15 @@ class MainCoordinator: UINavigationController {
     init() {
         super.init(nibName: nil, bundle: nil)
         self.setViewControllers(
-            [UIHostingController(rootView: PerformanceListView())],
+            [
+                UIHostingController(rootView: PerformanceListView(
+                    viewModel: PerformanceListViewModel()
+                ))
+            ],
             animated: false
         )
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
