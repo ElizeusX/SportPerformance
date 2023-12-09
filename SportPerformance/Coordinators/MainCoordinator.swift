@@ -14,8 +14,8 @@ class MainCoordinator: UINavigationController {
         super.init(nibName: nil, bundle: nil)
         self.setViewControllers(
             [
-                UIHostingController(rootView: PerformanceListView(
-                    viewModel: PerformanceListViewModel(coordinator: self)
+                UIHostingController(rootView: SportPerformanceListView(
+                    viewModel: SportPerformanceListViewModel(coordinator: self)
                 ))
             ],
             animated: false

@@ -16,10 +16,10 @@
 		258941AB2B2204C800657376 /* SportPerformanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941AA2B2204C800657376 /* SportPerformanceUITests.swift */; };
 		258941AD2B2204C800657376 /* SportPerformanceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941AC2B2204C800657376 /* SportPerformanceUITestsLaunchTests.swift */; };
 		258941BB2B22189D00657376 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941BA2B22189D00657376 /* MainCoordinator.swift */; };
-		258941BE2B221C1900657376 /* PerformanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941BD2B221C1900657376 /* PerformanceListView.swift */; };
+		258941BE2B221C1900657376 /* SportPerformanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941BD2B221C1900657376 /* SportPerformanceListView.swift */; };
 		258941C02B2387B100657376 /* PerformanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941BF2B2387B100657376 /* PerformanceCell.swift */; };
 		258941C22B23A43200657376 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941C12B23A43200657376 /* Constraints.swift */; };
-		258941C42B24BD0A00657376 /* PerformanceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941C32B24BD0A00657376 /* PerformanceListViewModel.swift */; };
+		258941C42B24BD0A00657376 /* SportPerformanceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941C32B24BD0A00657376 /* SportPerformanceListViewModel.swift */; };
 		258941C72B24BDDB00657376 /* PerformanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941C62B24BDDB00657376 /* PerformanceModel.swift */; };
 		258941CB2B24C5AF00657376 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941CA2B24C5AF00657376 /* MockData.swift */; };
 		258941D12B24E1B200657376 /* MainCoordinatorDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941D02B24E1B200657376 /* MainCoordinatorDelegates.swift */; };
@@ -56,10 +56,10 @@
 		258941AA2B2204C800657376 /* SportPerformanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPerformanceUITests.swift; sourceTree = "<group>"; };
 		258941AC2B2204C800657376 /* SportPerformanceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPerformanceUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		258941BA2B22189D00657376 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		258941BD2B221C1900657376 /* PerformanceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceListView.swift; sourceTree = "<group>"; };
+		258941BD2B221C1900657376 /* SportPerformanceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPerformanceListView.swift; sourceTree = "<group>"; };
 		258941BF2B2387B100657376 /* PerformanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceCell.swift; sourceTree = "<group>"; };
 		258941C12B23A43200657376 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
-		258941C32B24BD0A00657376 /* PerformanceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceListViewModel.swift; sourceTree = "<group>"; };
+		258941C32B24BD0A00657376 /* SportPerformanceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPerformanceListViewModel.swift; sourceTree = "<group>"; };
 		258941C62B24BDDB00657376 /* PerformanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceModel.swift; sourceTree = "<group>"; };
 		258941CA2B24C5AF00657376 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		258941D02B24E1B200657376 /* MainCoordinatorDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorDelegates.swift; sourceTree = "<group>"; };
@@ -157,8 +157,8 @@
 		258941BC2B221BB300657376 /* PerformanceListScreen */ = {
 			isa = PBXGroup;
 			children = (
-				258941BD2B221C1900657376 /* PerformanceListView.swift */,
-				258941C32B24BD0A00657376 /* PerformanceListViewModel.swift */,
+				258941BD2B221C1900657376 /* SportPerformanceListView.swift */,
+				258941C32B24BD0A00657376 /* SportPerformanceListViewModel.swift */,
 				258941BF2B2387B100657376 /* PerformanceCell.swift */,
 			);
 			path = PerformanceListScreen;
@@ -321,12 +321,12 @@
 				258941C02B2387B100657376 /* PerformanceCell.swift in Sources */,
 				258941C22B23A43200657376 /* Constraints.swift in Sources */,
 				258941872B2204C700657376 /* AppDelegate.swift in Sources */,
-				258941C42B24BD0A00657376 /* PerformanceListViewModel.swift in Sources */,
+				258941C42B24BD0A00657376 /* SportPerformanceListViewModel.swift in Sources */,
 				258941892B2204C700657376 /* SceneDelegate.swift in Sources */,
 				258941BB2B22189D00657376 /* MainCoordinator.swift in Sources */,
 				258941912B2204C700657376 /* SportPerformance.xcdatamodeld in Sources */,
 				258941C72B24BDDB00657376 /* PerformanceModel.swift in Sources */,
-				258941BE2B221C1900657376 /* PerformanceListView.swift in Sources */,
+				258941BE2B221C1900657376 /* SportPerformanceListView.swift in Sources */,
 				258941CB2B24C5AF00657376 /* MockData.swift in Sources */,
 				258941D12B24E1B200657376 /* MainCoordinatorDelegates.swift in Sources */,
 			);

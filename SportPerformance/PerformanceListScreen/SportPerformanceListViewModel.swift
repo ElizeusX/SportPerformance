@@ -1,5 +1,5 @@
 //
-//  PerformanceListViewModel.swift
+//  SportPerformanceListViewModel.swift
 //  SportPerformance
 //
 //  Created by Elizeus Chrabrov on 09.12.2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PerformanceListViewModel: ObservableObject {
+class SportPerformanceListViewModel: ObservableObject {
 
     private weak var coordinator: PerformanceListCoordinatorDelegate?
 

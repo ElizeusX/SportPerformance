@@ -1,5 +1,5 @@
 //
-//  PerformanceListView.swift
+//  SportPerformanceListView.swift
 //  SportPerformance
 //
 //  Created by Elizeus Chrabrov on 07.12.2023.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct PerformanceListView: View {
+struct SportPerformanceListView: View {
 
-    @StateObject private var viewModel: PerformanceListViewModel
+    @StateObject private var viewModel: SportPerformanceListViewModel
 
     // MARK: Init
-    init(viewModel: PerformanceListViewModel) {
+    init(viewModel: SportPerformanceListViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
 
@@ -27,7 +27,7 @@ struct PerformanceListView: View {
 }
 
 // MARK: - Components
-private extension PerformanceListView {
+private extension SportPerformanceListView {
     var performanceList: some View {
         ScrollView {
             LazyVStack {
@@ -68,7 +68,7 @@ private extension PerformanceListView {
 
 // MARK: - Preview
 #Preview {
-    PerformanceListView(
-        viewModel: PerformanceListViewModel(coordinator: nil)
+    SportPerformanceListView(
+        viewModel: SportPerformanceListViewModel(coordinator: nil)
     )
 }
