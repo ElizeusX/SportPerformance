@@ -8,6 +8,20 @@
 import Foundation
 
 class PerformanceListViewModel: ObservableObject {
-    
+
+    private weak var coordinator: PerformanceListCoordinatorDelegate?
+
     @Published var performanceData: [PerformanceModel] = MockData.performanceData
+
+    // MARK: Init
+    init(
+        coordinator: PerformanceListCoordinatorDelegate?
+    ) {
+        self.coordinator = coordinator
+    }
+
+    // MARK: Methods
+    func goToAddPerformance() {
+        coordinator?.goToAddPerformance()
+    }
 }

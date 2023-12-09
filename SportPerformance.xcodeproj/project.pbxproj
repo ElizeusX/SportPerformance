@@ -22,6 +22,7 @@
 		258941C42B24BD0A00657376 /* PerformanceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941C32B24BD0A00657376 /* PerformanceListViewModel.swift */; };
 		258941C72B24BDDB00657376 /* PerformanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941C62B24BDDB00657376 /* PerformanceModel.swift */; };
 		258941CB2B24C5AF00657376 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941CA2B24C5AF00657376 /* MockData.swift */; };
+		258941D12B24E1B200657376 /* MainCoordinatorDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941D02B24E1B200657376 /* MainCoordinatorDelegates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		258941C32B24BD0A00657376 /* PerformanceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceListViewModel.swift; sourceTree = "<group>"; };
 		258941C62B24BDDB00657376 /* PerformanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceModel.swift; sourceTree = "<group>"; };
 		258941CA2B24C5AF00657376 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		258941D02B24E1B200657376 /* MainCoordinatorDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorDelegates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				258941BA2B22189D00657376 /* MainCoordinator.swift */,
+				258941D02B24E1B200657376 /* MainCoordinatorDelegates.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				258941C72B24BDDB00657376 /* PerformanceModel.swift in Sources */,
 				258941BE2B221C1900657376 /* PerformanceListView.swift in Sources */,
 				258941CB2B24C5AF00657376 /* MockData.swift in Sources */,
+				258941D12B24E1B200657376 /* MainCoordinatorDelegates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
