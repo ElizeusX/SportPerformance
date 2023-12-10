@@ -1,5 +1,5 @@
 //
-//  NewSportPerformance.swift
+//  NewSportPerformanceView.swift
 //  SportPerformance
 //
 //  Created by Elizeus Chrabrov on 09.12.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewSportPerformance: View {
+struct NewSportPerformanceView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             ScrollView {
@@ -25,7 +25,7 @@ struct NewSportPerformance: View {
 }
 
 // MARK: - Components
-private extension NewSportPerformance {
+private extension NewSportPerformanceView {
     var nameTextField: PrimaryTextField {
         PrimaryTextField(
             title: "Name:",
@@ -58,5 +58,5 @@ private extension NewSportPerformance {
 
 // MARK: - Preview
 #Preview {
-    NewSportPerformance()
+    NewSportPerformanceView()
 }
