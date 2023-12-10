@@ -21,7 +21,7 @@ struct SportPerformanceListView: View {
         Text("Sports Performance")
         ZStack(alignment: .bottom) {
             performanceList
-            mainButton
+            primaryButton
         }
     }
 }
@@ -44,25 +44,12 @@ private extension SportPerformanceListView {
             }
         }
     }
-    var mainButton: some View {
-        Button(action: viewModel.goToNewSportPerformance, label: {
-            Spacer()
-            HStack {
-                Text("Add new")
-                Image(systemName: "figure.run.square.stack")
-            }
-            .foregroundColor(.green.opacity(0.9))
-            .frame(height: 50)
-            Spacer()
-        })
-        .background(Color.black.opacity(0.9))
-        .clipShape(.capsule)
-        .padding(EdgeInsets(
-            top: 0,
-            leading: Constraints.Padding.medium,
-            bottom: Constraints.Padding.standard,
-            trailing: Constraints.Padding.medium
-        ))
+    var primaryButton: PrimaryButton {
+        PrimaryButton(
+            title: "Add new",
+            icon: Image(systemName: "figure.run.square.stack"),
+            action: viewModel.goToNewSportPerformance
+        )
     }
 }
 
