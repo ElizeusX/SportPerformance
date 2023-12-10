@@ -26,6 +26,7 @@
 		258941D42B24FBB600657376 /* NewSportPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941D32B24FBB600657376 /* NewSportPerformance.swift */; };
 		258941D72B2615C800657376 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941D62B2615C800657376 /* PrimaryButton.swift */; };
 		258941D92B261E8300657376 /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941D82B261E8300657376 /* PrimaryTextField.swift */; };
+		258941DB2B264C7200657376 /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941DA2B264C7200657376 /* TimePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		258941D32B24FBB600657376 /* NewSportPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSportPerformance.swift; sourceTree = "<group>"; };
 		258941D62B2615C800657376 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		258941D82B261E8300657376 /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
+		258941DA2B264C7200657376 /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 			children = (
 				258941D62B2615C800657376 /* PrimaryButton.swift */,
 				258941D82B261E8300657376 /* PrimaryTextField.swift */,
+				258941DA2B264C7200657376 /* TimePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				258941D72B2615C800657376 /* PrimaryButton.swift in Sources */,
 				258941BB2B22189D00657376 /* MainCoordinator.swift in Sources */,
 				258941912B2204C700657376 /* SportPerformance.xcdatamodeld in Sources */,
+				258941DB2B264C7200657376 /* TimePicker.swift in Sources */,
 				258941C72B24BDDB00657376 /* PerformanceModel.swift in Sources */,
 				258941D42B24FBB600657376 /* NewSportPerformance.swift in Sources */,
 				258941BE2B221C1900657376 /* SportPerformanceListView.swift in Sources */,

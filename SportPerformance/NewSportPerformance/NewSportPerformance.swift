@@ -14,10 +14,11 @@ struct NewSportPerformance: View {
                 VStack(spacing: Constraints.Padding.medium) {
                     nameTextField
                     placeTextField
+                    timePicker
                 }
+                .padding(.vertical, 100)
                 Spacer()
             }
-            .padding(.top, 100)
             primaryButton
         }
     }
@@ -25,18 +26,25 @@ struct NewSportPerformance: View {
 
 // MARK: - Components
 private extension NewSportPerformance {
-    var nameTextField: some View {
+    var nameTextField: PrimaryTextField {
         PrimaryTextField(
             title: "Name:",
             placeholder: "Running",
             text: .constant("") // TODO
         )
     }
-    var placeTextField: some View {
+    var placeTextField: PrimaryTextField {
         PrimaryTextField(
             title: "Place:",
             placeholder: "Stadium",
             text: .constant("") // TODO
+        )
+    }
+    var timePicker: TimePicker {
+        TimePicker(
+            selectedHours: .constant(0),  // TODO
+            selectedMinutes: .constant(0), // TODO
+            selectedSeconds: .constant(0) // TODO
         )
     }
     var primaryButton: PrimaryButton {
