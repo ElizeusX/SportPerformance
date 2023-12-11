@@ -66,7 +66,7 @@ private extension NewSportPerformanceView {
         PrimaryButton(
             title: "Add",
             icon: Image(systemName: "plus.square.on.square"),
-            action: {} // TODO
+            action: viewModel.createSportPerformance
         )
     }
 }
