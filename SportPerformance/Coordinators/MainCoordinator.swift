@@ -17,10 +17,7 @@ class MainCoordinator: UINavigationController {
             navigationPropagation: NavigationPropagation()
         )
         let hostingController = HostingController(navigationPropagation: view.navigationPropagation) { view }
-        self.setViewControllers(
-            [hostingController],
-            animated: false
-        )
+        self.setViewControllers([hostingController], animated: false)
     }
 
     required init?(coder aDecoder: NSCoder) {
