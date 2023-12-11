@@ -10,3 +10,7 @@ import Foundation
 protocol PerformanceListCoordinatorDelegate: AnyObject {
     func goToNewSportPerformance()
 }
+
+protocol NewSportPerformanceListCoordinatorDelegate: AnyObject {
+    func finishNewSportPerformance()
+}

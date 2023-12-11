@@ -25,12 +25,29 @@ class MainCoordinator: UINavigationController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    private func cancel(animated: Bool = true) {
+        popViewController(animated: animated)
+    }
 }
 
 // MARK: - Delegates
 extension MainCoordinator: PerformanceListCoordinatorDelegate {
 
     func goToNewSportPerformance() {
-        // TODO: Add view to new sports performance
+        let view = NewSportPerformanceView(
+            viewModel: NewSportPerformanceViewModel()
+        )
+        pushViewController(
+            UIHostingController(rootView: view),
+            animated: true
+        )
+    }
+}
+
+extension MainCoordinator: NewSportPerformanceListCoordinatorDelegate {
+
+    func finishNewSportPerformance() {
+        cancel()
     }
 }
