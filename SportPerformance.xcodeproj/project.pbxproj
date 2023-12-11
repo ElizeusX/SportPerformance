@@ -28,6 +28,8 @@
 		258941D92B261E8300657376 /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941D82B261E8300657376 /* PrimaryTextField.swift */; };
 		258941DB2B264C7200657376 /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941DA2B264C7200657376 /* TimePicker.swift */; };
 		258941DD2B26553600657376 /* NewSportPerformanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941DC2B26553600657376 /* NewSportPerformanceViewModel.swift */; };
+		258941E22B274A6F00657376 /* NavigationPropagation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941E12B274A6F00657376 /* NavigationPropagation.swift */; };
+		258941E42B274AA200657376 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941E32B274AA200657376 /* HostingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		258941D82B261E8300657376 /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
 		258941DA2B264C7200657376 /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
 		258941DC2B26553600657376 /* NewSportPerformanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSportPerformanceViewModel.swift; sourceTree = "<group>"; };
+		258941E12B274A6F00657376 /* NavigationPropagation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPropagation.swift; sourceTree = "<group>"; };
+		258941E32B274AA200657376 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 		258941B92B22188700657376 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				258941E02B274A5C00657376 /* Navigation */,
 				258941BA2B22189D00657376 /* MainCoordinator.swift */,
 				258941D02B24E1B200657376 /* MainCoordinatorDelegates.swift */,
 			);
@@ -217,6 +222,15 @@
 				258941DA2B264C7200657376 /* TimePicker.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		258941E02B274A5C00657376 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				258941E12B274A6F00657376 /* NavigationPropagation.swift */,
+				258941E32B274AA200657376 /* HostingController.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,8 +374,10 @@
 				258941BB2B22189D00657376 /* MainCoordinator.swift in Sources */,
 				258941912B2204C700657376 /* SportPerformance.xcdatamodeld in Sources */,
 				258941DB2B264C7200657376 /* TimePicker.swift in Sources */,
+				258941E42B274AA200657376 /* HostingController.swift in Sources */,
 				258941C72B24BDDB00657376 /* PerformanceModel.swift in Sources */,
 				258941D42B24FBB600657376 /* NewSportPerformanceView.swift in Sources */,
+				258941E22B274A6F00657376 /* NavigationPropagation.swift in Sources */,
 				258941BE2B221C1900657376 /* SportPerformanceListView.swift in Sources */,
 				258941CB2B24C5AF00657376 /* MockData.swift in Sources */,
 				258941D12B24E1B200657376 /* MainCoordinatorDelegates.swift in Sources */,

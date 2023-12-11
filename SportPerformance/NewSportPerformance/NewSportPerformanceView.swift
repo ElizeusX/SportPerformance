@@ -10,10 +10,16 @@ import SwiftUI
 struct NewSportPerformanceView: View {
 
     @StateObject private var viewModel: NewSportPerformanceViewModel
+    let navigationPropagation: NavigationPropagation
 
     // MARK: Init
-    init(viewModel: NewSportPerformanceViewModel) {
+    init(
+        viewModel: NewSportPerformanceViewModel,
+        navigationPropagation: NavigationPropagation
+    ) {
         self._viewModel = StateObject(wrappedValue: viewModel)
+        self.navigationPropagation = navigationPropagation
+        self.navigationPropagation.screenTitleSubject.send("New Sport Performance")
     }
 
     // MARK: Body
@@ -68,6 +74,7 @@ private extension NewSportPerformanceView {
 // MARK: - Preview
 #Preview {
     NewSportPerformanceView(
-        viewModel: NewSportPerformanceViewModel()
+        viewModel: NewSportPerformanceViewModel(),
+        navigationPropagation: NavigationPropagation()
     )
 }

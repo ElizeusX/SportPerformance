@@ -10,15 +10,20 @@ import SwiftUI
 struct SportPerformanceListView: View {
 
     @StateObject private var viewModel: SportPerformanceListViewModel
+    let navigationPropagation: NavigationPropagation
 
     // MARK: Init
-    init(viewModel: SportPerformanceListViewModel) {
+    init(
+        viewModel: SportPerformanceListViewModel,
+        navigationPropagation: NavigationPropagation
+    ) {
         self._viewModel = StateObject(wrappedValue: viewModel)
+        self.navigationPropagation = navigationPropagation
+        self.navigationPropagation.screenTitleSubject.send("Sports Performance")
     }
 
     // MARK: Body
     var body: some View {
-        Text("Sports Performance")
         ZStack(alignment: .bottom) {
             performanceList
             primaryButton
@@ -56,6 +61,7 @@ private extension SportPerformanceListView {
 // MARK: - Preview
 #Preview {
     SportPerformanceListView(
-        viewModel: SportPerformanceListViewModel(coordinator: nil)
+        viewModel: SportPerformanceListViewModel(coordinator: nil),
+        navigationPropagation: NavigationPropagation()
     )
 }

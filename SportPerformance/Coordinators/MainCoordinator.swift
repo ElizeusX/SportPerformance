@@ -12,12 +12,13 @@ class MainCoordinator: UINavigationController {
     // MARK: Init
     init() {
         super.init(nibName: nil, bundle: nil)
+        let view = SportPerformanceListView(
+            viewModel: SportPerformanceListViewModel(coordinator: self),
+            navigationPropagation: NavigationPropagation()
+        )
+        let hostingController = HostingController(navigationPropagation: view.navigationPropagation) { view }
         self.setViewControllers(
-            [
-                UIHostingController(rootView: SportPerformanceListView(
-                    viewModel: SportPerformanceListViewModel(coordinator: self)
-                ))
-            ],
+            [hostingController],
             animated: false
         )
     }
@@ -36,12 +37,11 @@ extension MainCoordinator: PerformanceListCoordinatorDelegate {
 
     func goToNewSportPerformance() {
         let view = NewSportPerformanceView(
-            viewModel: NewSportPerformanceViewModel()
+            viewModel: NewSportPerformanceViewModel(),
+            navigationPropagation: NavigationPropagation()
         )
-        pushViewController(
-            UIHostingController(rootView: view),
-            animated: true
-        )
+        let hostingController = HostingController(navigationPropagation: view.navigationPropagation) { view }
+        pushViewController(hostingController, animated: true)
     }
 }
 
