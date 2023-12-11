@@ -74,7 +74,7 @@ private extension NewSportPerformanceView {
 // MARK: - Preview
 #Preview {
     NewSportPerformanceView(
-        viewModel: NewSportPerformanceViewModel(),
+        viewModel: NewSportPerformanceViewModel(coordinator: nil),
         navigationPropagation: NavigationPropagation()
     )
 }

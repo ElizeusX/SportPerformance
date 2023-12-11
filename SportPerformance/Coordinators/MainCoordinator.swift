@@ -34,7 +34,7 @@ extension MainCoordinator: PerformanceListCoordinatorDelegate {
 
     func goToNewSportPerformance() {
         let view = NewSportPerformanceView(
-            viewModel: NewSportPerformanceViewModel(),
+            viewModel: NewSportPerformanceViewModel(coordinator: self),
             navigationPropagation: NavigationPropagation()
         )
         let hostingController = HostingController(navigationPropagation: view.navigationPropagation) { view }

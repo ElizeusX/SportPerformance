@@ -9,20 +9,30 @@ import Foundation
 
 class NewSportPerformanceViewModel: ObservableObject {
 
+    private weak var coordinator: NewSportPerformanceListCoordinatorDelegate?
+
     @Published var name = ""
     @Published var place = ""
     @Published var selectedHours = 0
     @Published var selectedMinutes = 0
     @Published var selectedSeconds = 0
 
+    // MARK: Init
+    init(
+        coordinator: NewSportPerformanceListCoordinatorDelegate?
+    ) {
+        self.coordinator = coordinator
+    }
+
 
     // MARK: Methods
     func createSportPerformance() {
         // TODO: Name, place, duration and save to remote or local
+        coordinator?.finishNewSportPerformance()
     }
 
     // MARK: Private methods
-    private func getDuration() -> String {
+    private func getFormattedDuration() -> String {
         var dateComponents = DateComponents()
         dateComponents.hour = selectedHours
         dateComponents.minute = selectedMinutes
