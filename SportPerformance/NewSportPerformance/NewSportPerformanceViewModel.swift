@@ -9,7 +9,10 @@ import Foundation
 
 class NewSportPerformanceViewModel: ObservableObject {
 
-    @Published var hours = 0
-    @Published var minutes = 0
-    @Published var seconds = 0
+    @Published var name = ""
+    @Published var place = ""
+    @Published var selectedHours = 0
+    @Published var selectedMinutes = 0
+    @Published var selectedSeconds = 0
+
 }

@@ -8,6 +8,15 @@
 import SwiftUI
 
 struct NewSportPerformanceView: View {
+
+    @StateObject private var viewModel: NewSportPerformanceViewModel
+
+    // MARK: Init
+    init(viewModel: NewSportPerformanceViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
+
+    // MARK: Body
     var body: some View {
         ZStack(alignment: .bottom) {
             ScrollView {
@@ -30,21 +39,21 @@ private extension NewSportPerformanceView {
         PrimaryTextField(
             title: "Name:",
             placeholder: "Running",
-            text: .constant("") // TODO
+            text: $viewModel.name
         )
     }
     var placeTextField: PrimaryTextField {
         PrimaryTextField(
             title: "Place:",
             placeholder: "Stadium",
-            text: .constant("") // TODO
+            text: $viewModel.place
         )
     }
     var timePicker: TimePicker {
         TimePicker(
-            selectedHours: .constant(0),  // TODO
-            selectedMinutes: .constant(0), // TODO
-            selectedSeconds: .constant(0) // TODO
+            selectedHours: $viewModel.selectedHours,
+            selectedMinutes: $viewModel.selectedMinutes,
+            selectedSeconds: $viewModel.selectedSeconds
         )
     }
     var primaryButton: PrimaryButton {
@@ -58,5 +67,7 @@ private extension NewSportPerformanceView {
 
 // MARK: - Preview
 #Preview {
-    NewSportPerformanceView()
+    NewSportPerformanceView(
+        viewModel: NewSportPerformanceViewModel()
+    )
 }
