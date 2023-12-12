@@ -10,17 +10,19 @@ import Foundation
 enum MockData {
     static let performanceData = [
         PerformanceModel(
-            id: UUID(),
+            id: UUID().uuidString,
             name: "Name",
             place: "Place",
             duration: "Duration",
+            date: Date.now,
             repository: .remote
         ),
         PerformanceModel(
-            id: UUID(),
+            id: UUID().uuidString,
             name: "Name",
             place: "Place",
             duration: "Duration",
+            date: Date.now,
             repository: .local
         )
     ]

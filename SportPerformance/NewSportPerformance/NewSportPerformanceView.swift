@@ -10,6 +10,7 @@ import SwiftUI
 struct NewSportPerformanceView: View {
 
     @StateObject private var viewModel: NewSportPerformanceViewModel
+    private let progressHudBinding: ProgressHudBinding
     let navigationPropagation: NavigationPropagation
 
     // MARK: Init
@@ -18,6 +19,7 @@ struct NewSportPerformanceView: View {
         navigationPropagation: NavigationPropagation
     ) {
         self._viewModel = StateObject(wrappedValue: viewModel)
+        self.progressHudBinding = ProgressHudBinding(state: viewModel.$progressHudState)
         self.navigationPropagation = navigationPropagation
         self.navigationPropagation.screenTitleSubject.send("New Sport Performance")
     }
@@ -74,7 +76,10 @@ private extension NewSportPerformanceView {
 // MARK: - Preview
 #Preview {
     NewSportPerformanceView(
-        viewModel: NewSportPerformanceViewModel(coordinator: nil),
+        viewModel: NewSportPerformanceViewModel(
+            coordinator: nil,
+            firebaseStoreService: MockFirebaseStoreService()
+        ),
         navigationPropagation: NavigationPropagation()
     )
 }

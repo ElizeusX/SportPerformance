@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCUlNpqn8-grOiuaLx36pJBAVJpzzVBkrs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>797926865312</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sport.performance</string>
+	<key>PROJECT_ID</key>
+	<string>sportsperformance-ba7b7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sportsperformance-ba7b7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:797926865312:ios:284b081ac8dffb4c354cc5</string>
+</dict>
+</plist>

@@ -9,11 +9,19 @@ import SwiftUI
 
 class MainCoordinator: UINavigationController {
     
+    private let firebaseStoreService: FirebaseStoreServiceProtocol
+
     // MARK: Init
-    init() {
+    init(
+        firebaseStoreService: FirebaseStoreServiceProtocol
+    ) {
+        self.firebaseStoreService = firebaseStoreService
         super.init(nibName: nil, bundle: nil)
         let view = SportPerformanceListView(
-            viewModel: SportPerformanceListViewModel(coordinator: self),
+            viewModel: SportPerformanceListViewModel(
+                coordinator: self,
+                firebaseStoreService: firebaseStoreService
+            ),
             navigationPropagation: NavigationPropagation()
         )
         let hostingController = HostingController(navigationPropagation: view.navigationPropagation) { view }
@@ -34,7 +42,10 @@ extension MainCoordinator: PerformanceListCoordinatorDelegate {
 
     func goToNewSportPerformance() {
         let view = NewSportPerformanceView(
-            viewModel: NewSportPerformanceViewModel(coordinator: self),
+            viewModel: NewSportPerformanceViewModel(
+                coordinator: self,
+                firebaseStoreService: firebaseStoreService
+            ),
             navigationPropagation: NavigationPropagation()
         )
         let hostingController = HostingController(navigationPropagation: view.navigationPropagation) { view }

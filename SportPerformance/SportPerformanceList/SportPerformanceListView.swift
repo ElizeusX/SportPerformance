@@ -10,6 +10,7 @@ import SwiftUI
 struct SportPerformanceListView: View {
 
     @StateObject private var viewModel: SportPerformanceListViewModel
+    private let progressHudBinding: ProgressHudBinding
     let navigationPropagation: NavigationPropagation
 
     // MARK: Init
@@ -18,6 +19,7 @@ struct SportPerformanceListView: View {
         navigationPropagation: NavigationPropagation
     ) {
         self._viewModel = StateObject(wrappedValue: viewModel)
+        self.progressHudBinding = ProgressHudBinding(state: viewModel.$progressHudState)
         self.navigationPropagation = navigationPropagation
         self.navigationPropagation.screenTitleSubject.send("Sports Performance")
     }
@@ -36,7 +38,7 @@ private extension SportPerformanceListView {
     var performanceList: some View {
         ScrollView {
             LazyVStack {
-                ForEach(viewModel.performanceData, id: \.id) { item in
+                ForEach(viewModel.performanceCollection, id: \.id) { item in
                     PerformanceCell(
                         viewModel: PerformanceCellViewModel(
                             name: item.name,
@@ -61,7 +63,10 @@ private extension SportPerformanceListView {
 // MARK: - Preview
 #Preview {
     SportPerformanceListView(
-        viewModel: SportPerformanceListViewModel(coordinator: nil),
+        viewModel: SportPerformanceListViewModel(
+            coordinator: nil,
+            firebaseStoreService: MockFirebaseStoreService()
+        ),
         navigationPropagation: NavigationPropagation()
     )
 }

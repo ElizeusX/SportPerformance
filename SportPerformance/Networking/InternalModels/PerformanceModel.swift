@@ -8,9 +8,10 @@
 import Foundation
 
 struct PerformanceModel: Codable {
-    let id: UUID
+    let id: String
     let name: String
     let place: String
     let duration: String
+    let date: Date
     let repository: Repository
 }
