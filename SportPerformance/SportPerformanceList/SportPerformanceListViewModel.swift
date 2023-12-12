@@ -28,19 +28,31 @@ class SportPerformanceListViewModel: ObservableObject {
 
     // MARK: Methods
     func goToNewSportPerformance() {
-        coordinator?.goToNewSportPerformance()
+        coordinator?.goToNewSportPerformance(delegate: self)
     }
 
-    func getPerformanceCollection() {
+    private func getPerformanceCollection() {
         progressHudState = .showProgress
         Task { @MainActor in
             do {
                 performanceCollection = try await firebaseStoreService.getPerformanceCollection()
                 progressHudState = .hideProgress
             } catch {
-                self.error = error
+                self.error = error /*error handling*/
                 progressHudState = .hideProgress
             }
         }
+    }
+}
+
+// MARK: - NewSportPerformanceDelegate
+extension SportPerformanceListViewModel: NewSportPerformanceDelegate {
+
+    func updatePerformanceListForRemote() {
+        getPerformanceCollection()
+    }
+
+    func updatePerformanceListForLocal() {
+        // TODO: CoreData
     }
 }

@@ -68,7 +68,7 @@ private extension NewSportPerformanceView {
         PrimaryButton(
             title: "Add",
             icon: Image(systemName: "plus.square.on.square"),
-            action: viewModel.createSportPerformance
+            action: viewModel.addSportPerformance
         )
     }
 }
@@ -78,7 +78,8 @@ private extension NewSportPerformanceView {
     NewSportPerformanceView(
         viewModel: NewSportPerformanceViewModel(
             coordinator: nil,
-            firebaseStoreService: MockFirebaseStoreService()
+            firebaseStoreService: MockFirebaseStoreService(),
+            delegate: nil
         ),
         navigationPropagation: NavigationPropagation()
     )

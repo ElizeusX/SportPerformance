@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PerformanceListCoordinatorDelegate: AnyObject {
-    func goToNewSportPerformance()
+    func goToNewSportPerformance(delegate: NewSportPerformanceDelegate)
 }
 
 protocol NewSportPerformanceListCoordinatorDelegate: AnyObject {

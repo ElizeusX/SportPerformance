@@ -40,11 +40,12 @@ class MainCoordinator: UINavigationController {
 // MARK: - Delegates
 extension MainCoordinator: PerformanceListCoordinatorDelegate {
 
-    func goToNewSportPerformance() {
+    func goToNewSportPerformance(delegate: NewSportPerformanceDelegate) {
         let view = NewSportPerformanceView(
             viewModel: NewSportPerformanceViewModel(
                 coordinator: self,
-                firebaseStoreService: firebaseStoreService
+                firebaseStoreService: firebaseStoreService,
+                delegate: delegate
             ),
             navigationPropagation: NavigationPropagation()
         )

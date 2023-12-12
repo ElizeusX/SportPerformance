@@ -7,10 +7,16 @@
 
 import Foundation
 
+protocol NewSportPerformanceDelegate: AnyObject {
+    func updatePerformanceListForRemote()
+    func updatePerformanceListForLocal()
+}
+
 class NewSportPerformanceViewModel: ObservableObject {
 
     private weak var coordinator: NewSportPerformanceListCoordinatorDelegate?
     private let firebaseStoreService: FirebaseStoreServiceProtocol
+    private let delegate: NewSportPerformanceDelegate?
 
     @Published var name = ""
     @Published var place = ""
@@ -22,15 +28,16 @@ class NewSportPerformanceViewModel: ObservableObject {
     // MARK: Init
     init(
         coordinator: NewSportPerformanceListCoordinatorDelegate?,
-        firebaseStoreService: FirebaseStoreServiceProtocol
+        firebaseStoreService: FirebaseStoreServiceProtocol,
+        delegate: NewSportPerformanceDelegate?
     ) {
         self.coordinator = coordinator
         self.firebaseStoreService = firebaseStoreService
+        self.delegate = delegate
     }
 
-
     // MARK: Methods
-    func createSportPerformance() {
+    func addSportPerformance() {
         let performanceModel = FirebasePerformanceModel(
             name: name,
             place: place,
@@ -41,14 +48,15 @@ class NewSportPerformanceViewModel: ObservableObject {
         firebaseStoreService.addPerformance(performance: performanceModel) { [weak self] result in
             switch result {
             case .success:
+                self?.delegate?.updatePerformanceListForRemote()
                 self?.coordinator?.finishNewSportPerformance()
             case .failure(let error):
                 print(error.localizedDescription)
+                /*error handling*/
+                self?.progressHudState = .hideProgress
             }
-            self?.progressHudState = .hideProgress
         }
-
-        // TODO: Name, place, duration and save to remote or local
+        // TODO: save local
     }
 
     // MARK: Private methods
@@ -57,7 +65,7 @@ class NewSportPerformanceViewModel: ObservableObject {
         dateComponents.hour = selectedHours
         dateComponents.minute = selectedMinutes
         dateComponents.second = selectedSeconds
-        guard let date = Calendar.current.date(from: dateComponents) else { return "" /*error handler*/ }
+        guard let date = Calendar.current.date(from: dateComponents) else { return "" /*error handling*/ }
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss"
         return formatter.string(from: date)
