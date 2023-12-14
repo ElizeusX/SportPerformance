@@ -38,6 +38,12 @@ struct NewSportPerformanceView: View {
             }
             primaryButton
         }
+        .alert(item: $viewModel.alertConfig) { alert in
+            Alert(
+                title: Text(alert.title),
+                message: Text(alert.message)
+            )
+        }
     }
 }
 

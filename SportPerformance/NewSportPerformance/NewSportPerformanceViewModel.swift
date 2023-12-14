@@ -23,6 +23,7 @@ class NewSportPerformanceViewModel: ObservableObject {
     @Published var selectedHours = 0
     @Published var selectedMinutes = 0
     @Published var selectedSeconds = 0
+    @Published var alertConfig: AlertConfig?
     @Published private(set) var progressHudState: ProgressHudState = .hideProgress
 
     // MARK: Init
@@ -51,8 +52,10 @@ class NewSportPerformanceViewModel: ObservableObject {
                 self?.delegate?.updatePerformanceListForRemote()
                 self?.coordinator?.finishNewSportPerformance()
             case .failure(let error):
-                print(error.localizedDescription)
-                /*error handling*/
+                self?.alertConfig = AlertConfig(
+                    title: L.Errors.genericErrorTitle.string(),
+                    message: error.localizedDescription
+                )
                 self?.progressHudState = .hideProgress
             }
         }
@@ -65,7 +68,9 @@ class NewSportPerformanceViewModel: ObservableObject {
         dateComponents.hour = selectedHours
         dateComponents.minute = selectedMinutes
         dateComponents.second = selectedSeconds
-        guard let date = Calendar.current.date(from: dateComponents) else { return "" /*error handling*/ }
+        guard let date = Calendar.current.date(from: dateComponents) else {
+            preconditionFailure("Data must exist")
+        }
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss"
         return formatter.string(from: date)

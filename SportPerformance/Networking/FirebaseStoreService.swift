@@ -29,8 +29,13 @@ final class FirebaseStoreService: FirebaseStoreServiceProtocol {
         do {
             try firestore
                 .collection(performanceCollection)
-                .addDocument(from: performance)
-            completion(.success(()))
+                .addDocument(from: performance) { error in
+                    if let error {
+                        completion(.failure(error))
+                    } else {
+                        completion(.success(()))
+                    }
+                }
         } catch {
             completion(.failure(error))
         }

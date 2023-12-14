@@ -12,7 +12,7 @@ class SportPerformanceListViewModel: ObservableObject {
     private weak var coordinator: PerformanceListCoordinatorDelegate?
     private let firebaseStoreService: FirebaseStoreServiceProtocol
 
-    @Published var error: Error?
+    @Published var alertConfig: AlertConfig?
     @Published private(set) var performanceCollection: [PerformanceModel] = []
     @Published private(set) var progressHudState: ProgressHudState = .hideProgress
 
@@ -38,7 +38,10 @@ class SportPerformanceListViewModel: ObservableObject {
                 performanceCollection = try await firebaseStoreService.getPerformanceCollection()
                 progressHudState = .hideProgress
             } catch {
-                self.error = error /*error handling*/
+                alertConfig = AlertConfig(
+                    title: L.Errors.genericErrorTitle.string(),
+                    message: error.localizedDescription
+                )
                 progressHudState = .hideProgress
             }
         }

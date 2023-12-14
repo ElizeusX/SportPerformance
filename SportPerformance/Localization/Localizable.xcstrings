@@ -1,0 +1,36 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%lld hr" : {
+
+    },
+    "%lld min" : {
+
+    },
+    "%lld sec" : {
+
+    },
+    "Duration:" : {
+
+    },
+    "Error" : {
+
+    },
+    "Hours" : {
+
+    },
+    "Key" : {
+      "extractionState" : "manual"
+    },
+    "Minutes" : {
+
+    },
+    "Seconds" : {
+
+    },
+    "Unexpected error occured. Please try again later." : {
+
+    }
+  },
+  "version" : "1.0"
+}
