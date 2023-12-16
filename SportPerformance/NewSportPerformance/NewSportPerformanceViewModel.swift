@@ -8,14 +8,14 @@
 import Foundation
 
 protocol NewSportPerformanceDelegate: AnyObject {
-    func updatePerformanceListForRemote()
-    func updatePerformanceListForLocal()
+    func updatePerformanceList()
 }
 
 class NewSportPerformanceViewModel: ObservableObject {
 
     private weak var coordinator: NewSportPerformanceListCoordinatorDelegate?
     private let firebaseStoreService: FirebaseStoreServiceProtocol
+    private let dataPersistenceManager: DataPersistenceManagerProtocol
     private let delegate: NewSportPerformanceDelegate?
 
     @Published var name = ""
@@ -24,21 +24,24 @@ class NewSportPerformanceViewModel: ObservableObject {
     @Published var selectedMinutes = 0
     @Published var selectedSeconds = 0
     @Published var alertConfig: AlertConfig?
+    @Published var showSaveSelection = false
     @Published private(set) var progressHudState: ProgressHudState = .hideProgress
 
     // MARK: Init
     init(
         coordinator: NewSportPerformanceListCoordinatorDelegate?,
         firebaseStoreService: FirebaseStoreServiceProtocol,
+        dataPersistenceManager: DataPersistenceManagerProtocol,
         delegate: NewSportPerformanceDelegate?
     ) {
         self.coordinator = coordinator
         self.firebaseStoreService = firebaseStoreService
+        self.dataPersistenceManager = dataPersistenceManager
         self.delegate = delegate
     }
 
     // MARK: Methods
-    func addSportPerformance() {
+    func savePerformanceRemotely() {
         let performanceModel = FirebasePerformanceModel(
             name: name,
             place: place,
@@ -49,8 +52,7 @@ class NewSportPerformanceViewModel: ObservableObject {
         firebaseStoreService.addPerformance(performance: performanceModel) { [weak self] result in
             switch result {
             case .success:
-                self?.delegate?.updatePerformanceListForRemote()
-                self?.coordinator?.finishNewSportPerformance()
+                self?.updateListAndFinish()
             case .failure(let error):
                 self?.alertConfig = AlertConfig(
                     title: L.Errors.genericErrorTitle.string(),
@@ -59,11 +61,33 @@ class NewSportPerformanceViewModel: ObservableObject {
                 self?.progressHudState = .hideProgress
             }
         }
-        // TODO: save local
     }
 
-    // MARK: Private methods
-    private func getFormattedDuration() -> String {
+    func savePerformanceLocal() {
+        let performance = PerformanceModel(
+            id: UUID().uuidString,
+            name: name,
+            place: place,
+            duration: getFormattedDuration(),
+            date: Date.now,
+            repository: .local
+        )
+        do {
+            try dataPersistenceManager.savePerformance(performance: performance)
+            updateListAndFinish()
+        } catch {
+            alertConfig = AlertConfig(
+                title: L.Errors.genericErrorTitle.string(),
+                message: error.localizedDescription
+            )
+        }
+    }
+}
+
+// MARK: - Private methods
+private extension NewSportPerformanceViewModel {
+
+    func getFormattedDuration() -> String {
         var dateComponents = DateComponents()
         dateComponents.hour = selectedHours
         dateComponents.minute = selectedMinutes
@@ -74,5 +98,10 @@ class NewSportPerformanceViewModel: ObservableObject {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss"
         return formatter.string(from: date)
+    }
+
+    func updateListAndFinish() {
+        delegate?.updatePerformanceList()
+        coordinator?.finishNewSportPerformance()
     }
 }

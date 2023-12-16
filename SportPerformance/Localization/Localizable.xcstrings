@@ -10,10 +10,25 @@
     "%lld sec" : {
 
     },
+    "An error occurred while trying to delete the data from your device. Please try again later." : {
+
+    },
+    "An error occurred while trying to load the data locally. Please try again later." : {
+
+    },
+    "An error occurred while trying to save the data locally. Please try again later." : {
+
+    },
     "Duration:" : {
 
     },
     "Error" : {
+
+    },
+    "Failed to delete data" : {
+
+    },
+    "Failed to save data" : {
 
     },
     "Hours" : {
@@ -23,6 +38,18 @@
       "extractionState" : "manual"
     },
     "Minutes" : {
+
+    },
+    "Remote saving means that your data will be accessible to others" : {
+
+    },
+    "Save Locally" : {
+
+    },
+    "Save Options" : {
+
+    },
+    "Save Remotely" : {
 
     },
     "Seconds" : {

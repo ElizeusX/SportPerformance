@@ -11,6 +11,7 @@ class SportPerformanceListViewModel: ObservableObject {
 
     private weak var coordinator: PerformanceListCoordinatorDelegate?
     private let firebaseStoreService: FirebaseStoreServiceProtocol
+    private let dataPersistenceManager: DataPersistenceManagerProtocol
 
     @Published var alertConfig: AlertConfig?
     @Published private(set) var performanceCollection: [PerformanceModel] = []
@@ -19,10 +20,12 @@ class SportPerformanceListViewModel: ObservableObject {
     // MARK: Init
     init(
         coordinator: PerformanceListCoordinatorDelegate?,
-        firebaseStoreService: FirebaseStoreServiceProtocol
+        firebaseStoreService: FirebaseStoreServiceProtocol,
+        dataPersistenceManager: DataPersistenceManagerProtocol
     ) {
         self.coordinator = coordinator
         self.firebaseStoreService = firebaseStoreService
+        self.dataPersistenceManager = dataPersistenceManager
         self.getPerformanceCollection()
     }
 
@@ -30,19 +33,36 @@ class SportPerformanceListViewModel: ObservableObject {
     func goToNewSportPerformance() {
         coordinator?.goToNewSportPerformance(delegate: self)
     }
+}
 
-    private func getPerformanceCollection() {
-        progressHudState = .showProgress
-        Task { @MainActor in
+// MARK: - Private methods
+private extension SportPerformanceListViewModel {
+
+    func getPerformanceCollection() {
+        Task {
             do {
-                performanceCollection = try await firebaseStoreService.getPerformanceCollection()
-                progressHudState = .hideProgress
+                let localData = try dataPersistenceManager.getPerformanceCollection()
+                let remoteData = try await firebaseStoreService.getPerformanceCollection()
+                let combinedAndSortedData = (localData + remoteData).sorted { $0.date > $1.date }
+                await MainActor.run {
+                    performanceCollection = combinedAndSortedData
+                    progressHudState = .hideProgress
+                }
             } catch {
-                alertConfig = AlertConfig(
-                    title: L.Errors.genericErrorTitle.string(),
-                    message: error.localizedDescription
-                )
-                progressHudState = .hideProgress
+                await MainActor.run {
+                    if let error = error as? DataPersistenceError {
+                        alertConfig = AlertConfig(
+                            title: error.title,
+                            message: error.message
+                        )
+                    } else {
+                        alertConfig = AlertConfig(
+                            title: L.Errors.genericErrorTitle.string(),
+                            message: error.localizedDescription
+                        )
+                    }
+                    progressHudState = .hideProgress
+                }
             }
         }
     }
@@ -51,11 +71,7 @@ class SportPerformanceListViewModel: ObservableObject {
 // MARK: - NewSportPerformanceDelegate
 extension SportPerformanceListViewModel: NewSportPerformanceDelegate {
 
-    func updatePerformanceListForRemote() {
+    func updatePerformanceList() {
         getPerformanceCollection()
-    }
-
-    func updatePerformanceListForLocal() {
-        // TODO: CoreData
     }
 }

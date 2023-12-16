@@ -12,6 +12,11 @@
 		2511B5602B29D09A00B5EAB5 /* AlertConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B55F2B29D09A00B5EAB5 /* AlertConfig.swift */; };
 		2511B5632B2B363600B5EAB5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2511B5622B2B363600B5EAB5 /* Localizable.xcstrings */; };
 		2511B5652B2B43A500B5EAB5 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B5642B2B43A500B5EAB5 /* Localization.swift */; };
+		2511B5762B2B8A7500B5EAB5 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B5752B2B8A7500B5EAB5 /* DataPersistenceManager.swift */; };
+		2511B5782B2C927A00B5EAB5 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B5772B2C927A00B5EAB5 /* EmptyState.swift */; };
+		2511B57A2B2CA58200B5EAB5 /* MockDataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B5792B2CA58200B5EAB5 /* MockDataPersistenceManager.swift */; };
+		2511B57D2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B57B2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataClass.swift */; };
+		2511B57E2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B57C2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataProperties.swift */; };
 		258941872B2204C700657376 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941862B2204C700657376 /* AppDelegate.swift */; };
 		258941892B2204C700657376 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941882B2204C700657376 /* SceneDelegate.swift */; };
 		258941912B2204C700657376 /* SportPerformance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2589418F2B2204C700657376 /* SportPerformance.xcdatamodeld */; };
@@ -67,6 +72,11 @@
 		2511B55F2B29D09A00B5EAB5 /* AlertConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfig.swift; sourceTree = "<group>"; };
 		2511B5622B2B363600B5EAB5 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		2511B5642B2B43A500B5EAB5 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		2511B5752B2B8A7500B5EAB5 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
+		2511B5772B2C927A00B5EAB5 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
+		2511B5792B2CA58200B5EAB5 /* MockDataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataPersistenceManager.swift; sourceTree = "<group>"; };
+		2511B57B2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PerformanceEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2511B57C2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PerformanceEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		258941832B2204C700657376 /* SportPerformance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportPerformance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		258941862B2204C700657376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		258941882B2204C700657376 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +145,7 @@
 			children = (
 				2511B55D2B28A20E00B5EAB5 /* ProgressHud.swift */,
 				2511B55F2B29D09A00B5EAB5 /* AlertConfig.swift */,
+				2511B5772B2C927A00B5EAB5 /* EmptyState.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -146,6 +157,17 @@
 				2511B5642B2B43A500B5EAB5 /* Localization.swift */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		2511B5702B2B887000B5EAB5 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				2589418F2B2204C700657376 /* SportPerformance.xcdatamodeld */,
+				2511B57B2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataClass.swift */,
+				2511B57C2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataProperties.swift */,
+				2511B5752B2B8A7500B5EAB5 /* DataPersistenceManager.swift */,
+			);
+			path = Persistance;
 			sourceTree = "<group>";
 		};
 		2589417A2B2204C700657376 = {
@@ -172,6 +194,7 @@
 		258941852B2204C700657376 /* SportPerformance */ = {
 			isa = PBXGroup;
 			children = (
+				2511B5702B2B887000B5EAB5 /* Persistance */,
 				2511B5612B2B362A00B5EAB5 /* Localization */,
 				2511B55C2B28A18600B5EAB5 /* Helpers */,
 				25B4C5D42B2877DC0055EC86 /* Networking */,
@@ -186,7 +209,6 @@
 				258941922B2204C800657376 /* Assets.xcassets */,
 				258941942B2204C800657376 /* LaunchScreen.storyboard */,
 				258941972B2204C800657376 /* Info.plist */,
-				2589418F2B2204C700657376 /* SportPerformance.xcdatamodeld */,
 				258941C12B23A43200657376 /* Constraints.swift */,
 			);
 			path = SportPerformance;
@@ -319,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreService.swift */,
+				2511B5792B2CA58200B5EAB5 /* MockDataPersistenceManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -481,13 +504,18 @@
 				258941912B2204C700657376 /* SportPerformance.xcdatamodeld in Sources */,
 				258941DB2B264C7200657376 /* TimePicker.swift in Sources */,
 				2511B5652B2B43A500B5EAB5 /* Localization.swift in Sources */,
+				2511B5782B2C927A00B5EAB5 /* EmptyState.swift in Sources */,
 				258941E42B274AA200657376 /* HostingController.swift in Sources */,
 				25B4C5DE2B2888A30055EC86 /* FirebasePerformanceModel.swift in Sources */,
 				258941C72B24BDDB00657376 /* PerformanceModel.swift in Sources */,
 				258941D42B24FBB600657376 /* NewSportPerformanceView.swift in Sources */,
+				2511B5762B2B8A7500B5EAB5 /* DataPersistenceManager.swift in Sources */,
+				2511B57D2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataClass.swift in Sources */,
 				258941E22B274A6F00657376 /* NavigationPropagation.swift in Sources */,
 				258941BE2B221C1900657376 /* SportPerformanceListView.swift in Sources */,
+				2511B57A2B2CA58200B5EAB5 /* MockDataPersistenceManager.swift in Sources */,
 				258941CB2B24C5AF00657376 /* MockData.swift in Sources */,
+				2511B57E2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataProperties.swift in Sources */,
 				258941D12B24E1B200657376 /* MainCoordinatorDelegates.swift in Sources */,
 				25B4C5E12B2898AF0055EC86 /* MockFirebaseStoreService.swift in Sources */,
 			);

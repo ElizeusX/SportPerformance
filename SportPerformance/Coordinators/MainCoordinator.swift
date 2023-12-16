@@ -10,17 +10,21 @@ import SwiftUI
 class MainCoordinator: UINavigationController {
     
     private let firebaseStoreService: FirebaseStoreServiceProtocol
+    private let dataPersistenceManager: DataPersistenceManagerProtocol
 
     // MARK: Init
     init(
-        firebaseStoreService: FirebaseStoreServiceProtocol
+        firebaseStoreService: FirebaseStoreServiceProtocol,
+        dataPersistenceManager: DataPersistenceManagerProtocol
     ) {
         self.firebaseStoreService = firebaseStoreService
+        self.dataPersistenceManager = dataPersistenceManager
         super.init(nibName: nil, bundle: nil)
         let view = SportPerformanceListView(
             viewModel: SportPerformanceListViewModel(
                 coordinator: self,
-                firebaseStoreService: firebaseStoreService
+                firebaseStoreService: firebaseStoreService,
+                dataPersistenceManager: dataPersistenceManager
             ),
             navigationPropagation: NavigationPropagation()
         )
@@ -45,6 +49,7 @@ extension MainCoordinator: PerformanceListCoordinatorDelegate {
             viewModel: NewSportPerformanceViewModel(
                 coordinator: self,
                 firebaseStoreService: firebaseStoreService,
+                dataPersistenceManager: dataPersistenceManager,
                 delegate: delegate
             ),
             navigationPropagation: NavigationPropagation()

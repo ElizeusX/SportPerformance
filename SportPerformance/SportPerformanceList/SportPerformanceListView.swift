@@ -55,6 +55,7 @@ private extension SportPerformanceListView {
                     )
                 }
             }
+            .padding(.bottom, Constraints.Padding.huge)
         }
     }
     var primaryButton: PrimaryButton {
@@ -71,7 +72,8 @@ private extension SportPerformanceListView {
     SportPerformanceListView(
         viewModel: SportPerformanceListViewModel(
             coordinator: nil,
-            firebaseStoreService: MockFirebaseStoreService()
+            firebaseStoreService: MockFirebaseStoreService(),
+            dataPersistenceManager: MockDataPersistenceManager()
         ),
         navigationPropagation: NavigationPropagation()
     )

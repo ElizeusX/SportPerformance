@@ -33,11 +33,22 @@ struct NewSportPerformanceView: View {
                     placeTextField
                     timePicker
                 }
-                .padding(.vertical, 100)
+                .padding(.vertical, Constraints.Padding.huge)
                 Spacer()
             }
             primaryButton
         }
+        .actionSheet(isPresented: $viewModel.showSaveSelection, content: {
+            ActionSheet(
+                title: Text("Save Options"),
+                message: Text("Remote saving means that your data will be accessible to others"),
+                buttons: [
+                    .default(Text("Save Locally"), action: viewModel.savePerformanceLocal),
+                    .default(Text("Save Remotely"), action: viewModel.savePerformanceRemotely),
+                    .cancel()
+                ]
+            )
+        })
         .alert(item: $viewModel.alertConfig) { alert in
             Alert(
                 title: Text(alert.title),
@@ -74,7 +85,7 @@ private extension NewSportPerformanceView {
         PrimaryButton(
             title: "Add",
             icon: Image(systemName: "plus.square.on.square"),
-            action: viewModel.addSportPerformance
+            action: { viewModel.showSaveSelection.toggle() }
         )
     }
 }
@@ -85,6 +96,7 @@ private extension NewSportPerformanceView {
         viewModel: NewSportPerformanceViewModel(
             coordinator: nil,
             firebaseStoreService: MockFirebaseStoreService(),
+            dataPersistenceManager: MockDataPersistenceManager(),
             delegate: nil
         ),
         navigationPropagation: NavigationPropagation()

@@ -12,5 +12,6 @@ enum Constraints {
         static let small: CGFloat = 8
         static let standard: CGFloat = 16
         static let medium: CGFloat = 32
+        static let huge: CGFloat = 100
     }
 }
