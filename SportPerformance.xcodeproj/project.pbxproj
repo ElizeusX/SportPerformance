@@ -161,6 +161,8 @@
 				258941C12B23A43200657376 /* Constraints.swift */,
 				2511B57F2B2DE22E00B5EAB5 /* Icons.swift */,
 				2511B5832B2DED6300B5EAB5 /* Repository.swift */,
+				258941E12B274A6F00657376 /* NavigationPropagation.swift */,
+				258941E32B274AA200657376 /* HostingController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -217,9 +219,8 @@
 				25B4C5D42B2877DC0055EC86 /* Networking */,
 				258941D52B26159300657376 /* Components */,
 				258941B92B22188700657376 /* Coordinators */,
-				258941C82B24C58100657376 /* Mock */,
-				258941BC2B221BB300657376 /* SportPerformanceList */,
-				258941D22B24FB5900657376 /* NewSportPerformance */,
+				258941C82B24C58100657376 /* Mocks */,
+				25B64BE22B2F3ECD008C3950 /* Screens */,
 				258941E52B275F6700657376 /* Firebase */,
 				258941862B2204C700657376 /* AppDelegate.swift */,
 				258941882B2204C700657376 /* SceneDelegate.swift */,
@@ -250,7 +251,6 @@
 		258941B92B22188700657376 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				258941E02B274A5C00657376 /* Navigation */,
 				258941BA2B22189D00657376 /* MainCoordinator.swift */,
 				258941D02B24E1B200657376 /* MainCoordinatorDelegates.swift */,
 			);
@@ -275,13 +275,13 @@
 			path = InternalModels;
 			sourceTree = "<group>";
 		};
-		258941C82B24C58100657376 /* Mock */ = {
+		258941C82B24C58100657376 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				25B4C5DF2B28988E0055EC86 /* Services */,
+				25B4C5DF2B28988E0055EC86 /* Managers */,
 				258941C92B24C58700657376 /* Data */,
 			);
-			path = Mock;
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		258941C92B24C58700657376 /* Data */ = {
@@ -311,15 +311,6 @@
 				25B64BDB2B2F0021008C3950 /* WarningMessage.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		258941E02B274A5C00657376 /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				258941E12B274A6F00657376 /* NavigationPropagation.swift */,
-				258941E32B274AA200657376 /* HostingController.swift */,
-			);
-			path = Navigation;
 			sourceTree = "<group>";
 		};
 		258941E52B275F6700657376 /* Firebase */ = {
@@ -355,13 +346,22 @@
 			path = FirebaseModels;
 			sourceTree = "<group>";
 		};
-		25B4C5DF2B28988E0055EC86 /* Services */ = {
+		25B4C5DF2B28988E0055EC86 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreManager.swift */,
 				2511B5792B2CA58200B5EAB5 /* MockDataPersistenceManager.swift */,
 			);
-			path = Services;
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		25B64BE22B2F3ECD008C3950 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				258941BC2B221BB300657376 /* SportPerformanceList */,
+				258941D22B24FB5900657376 /* NewSportPerformance */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
