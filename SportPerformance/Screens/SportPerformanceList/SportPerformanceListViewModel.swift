@@ -62,6 +62,7 @@ private extension SportPerformanceListViewModel {
                     performanceCollection = combinedAndSortedData
                     progressHudState = .hideProgress
                 }
+                subscriptions.removeAll()
                 setupFilter()
             } catch {
                 await MainActor.run {
@@ -100,6 +101,7 @@ private extension SportPerformanceListViewModel {
 
     func deleteFromPerformanceCollection(with id: String) {
         performanceCollection.removeAll { $0.id == id }
+        filteredPerformanceCollection.removeAll { $0.id == id }
         progressHudState = .showSuccess
     }
 
