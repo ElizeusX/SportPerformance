@@ -40,9 +40,9 @@ struct PrimaryButton: View {
             .clipShape(.capsule)
             .padding(EdgeInsets(
                 top: 0,
-                leading: Constraints.Padding.medium,
-                bottom: Constraints.Padding.standard,
-                trailing: Constraints.Padding.medium
+                leading: Padding.big,
+                bottom: Padding.standard,
+                trailing: Padding.big
             ))
     }
 }
@@ -51,7 +51,7 @@ struct PrimaryButton: View {
 #Preview {
     PrimaryButton(
         title: "Button",
-        icon: Image(systemName: "figure.run.square.stack"),
+        icon: Icons.runSquare,
         action: {}
     )
 }

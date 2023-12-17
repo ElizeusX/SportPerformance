@@ -7,6 +7,28 @@
 
 import Foundation
 
+enum PerformanceTextFieldType: CaseIterable {
+    case name
+    case place
+
+    var title: String {
+        switch self {
+        case .name:
+            L.NewSportPerformance.textFieldNameTitle.string()
+        case .place:
+            L.NewSportPerformance.textFieldPlaceTitle.string()
+        }
+    }
+    var placeholder: String {
+        switch self {
+        case .name:
+            L.NewSportPerformance.textFieldNamePlaceholder.string()
+        case .place:
+            L.NewSportPerformance.textFieldPlacePlaceholder.string()
+        }
+    }
+}
+
 protocol NewSportPerformanceDelegate: AnyObject {
     func updatePerformanceList()
 }
@@ -18,14 +40,17 @@ class NewSportPerformanceViewModel: ObservableObject {
     private let dataPersistenceManager: DataPersistenceManagerProtocol
     private let delegate: NewSportPerformanceDelegate?
 
-    @Published var name = ""
-    @Published var place = ""
     @Published var selectedHours = 0
     @Published var selectedMinutes = 0
     @Published var selectedSeconds = 0
+    @Published var warningMessageForDuration = ""
     @Published var alertConfig: AlertConfig?
     @Published var showSaveSelection = false
     @Published private(set) var progressHudState: ProgressHudState = .hideProgress
+    @Published private var name = ""
+    @Published private var warningMessageForName = ""
+    @Published private var place = ""
+    @Published private var warningMessageForPlace = ""
 
     // MARK: Init
     init(
@@ -80,6 +105,54 @@ class NewSportPerformanceViewModel: ObservableObject {
                 title: L.Errors.genericErrorTitle.string(),
                 message: error.localizedDescription
             )
+        }
+    }
+
+    func primaryButtonAction() {
+        guard !name.isEmpty else {
+            warningMessageForName = L.NewSportPerformance.textFieldNameWarningMessage.string()
+            return
+        }
+        guard !place.isEmpty else {
+            warningMessageForPlace = L.NewSportPerformance.textFieldPlaceWarningMessage.string()
+            return
+        }
+        guard (selectedHours + selectedMinutes + selectedSeconds) != 0 else {
+            warningMessageForDuration = L.NewSportPerformance.durationWarningMessage.string()
+            return
+        }
+
+        showSaveSelection = true
+    }
+}
+
+// MARK: - Text field methods
+extension NewSportPerformanceViewModel {
+
+    func getTextFieldWarningMessage(for type: PerformanceTextFieldType) -> String {
+        switch type {
+        case .name:
+            warningMessageForName
+        case .place:
+            warningMessageForPlace
+        }
+    }
+
+    func getTextFieldText(for type: PerformanceTextFieldType) -> String {
+        switch type {
+        case .name:
+            name
+        case .place:
+            place
+        }
+    }
+
+    func setTextFieldText(for type: PerformanceTextFieldType, text: String) {
+        switch type {
+        case .name:
+            name = text
+        case .place:
+            place = text
         }
     }
 }

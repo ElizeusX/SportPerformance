@@ -7,28 +7,6 @@
 
 import SwiftUI
 
-enum Repository: Codable {
-    case local
-    case remote
-
-    var icon: String {
-        switch self {
-        case .local:
-            return "internaldrive.fill"
-        case .remote:
-            return "externaldrive.fill.badge.icloud"
-        }
-    }
-    var color: Color {
-        switch self {
-        case .local:
-            return .black
-        case .remote:
-            return .blue
-        }
-    }
-}
-
 // MARK: - ViewModel
 class PerformanceCellViewModel {
 
@@ -63,24 +41,42 @@ struct PerformanceCell: View {
 
     // MARK: Body
     var body: some View {
-        HStack(alignment: .center, spacing: Constraints.Padding.standard) {
-            Image(systemName: viewModel.repository.icon)
-                .foregroundColor(viewModel.repository.color)
-            Divider()
-                .background(Color.black)
-                .padding(.vertical, Constraints.Padding.small)
-            VStack(alignment: .leading) {
-                Text(viewModel.name)
-                    .font(.headline)
-                Text(viewModel.place)
-                Text(viewModel.time)
-            }
-            .font(.subheadline)
-            Spacer()
+        HStack(alignment: .center, spacing: Padding.standard) {
+            leftIcon
+            verticalDivider
+            infoStack
         }
-        .padding(.horizontal, Constraints.Padding.standard)
+        .padding(.horizontal, Padding.medium)
         .frame(height: 75)
         Divider()
+    }
+}
+
+// MARK: - Components
+private extension PerformanceCell {
+    var leftIcon: some View {
+        Icons.run
+            .resizable()
+            .scaledToFill()
+            .frame(width: 30, height: 30)
+    }
+    var verticalDivider: some View {
+        Divider()
+            .background(Color.black)
+            .padding(.vertical, Padding.small)
+    }
+    var infoStack: some View {
+        VStack(alignment: .leading) {
+            Text(viewModel.name)
+                .font(.headline)
+            Text(viewModel.place)
+            HStack {
+                Text(viewModel.time)
+                Spacer()
+                RepositoryLabel(for: viewModel.repository)
+            }
+        }
+        .font(.subheadline)
     }
 }
 
@@ -90,7 +86,7 @@ struct PerformanceCell: View {
         PerformanceCell(
             viewModel: PerformanceCellViewModel(
                 name: "Name",
-                place: "Description",
+                place: "Place",
                 time: "Time",
                 fromRepository: .remote
             )
@@ -98,7 +94,7 @@ struct PerformanceCell: View {
         PerformanceCell(
             viewModel: PerformanceCellViewModel(
                 name: "Name",
-                place: "Description",
+                place: "Place",
                 time: "Time",
                 fromRepository: .local
             )

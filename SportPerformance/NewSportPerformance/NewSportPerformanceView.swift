@@ -21,30 +21,34 @@ struct NewSportPerformanceView: View {
         self._viewModel = StateObject(wrappedValue: viewModel)
         self.progressHudBinding = ProgressHudBinding(state: viewModel.$progressHudState)
         self.navigationPropagation = navigationPropagation
-        self.navigationPropagation.screenTitleSubject.send("New Sport Performance")
+        self.navigationPropagation.screenTitleSubject.send(L.NewSportPerformance.title.string())
     }
 
     // MARK: Body
     var body: some View {
         ZStack(alignment: .bottom) {
             ScrollView {
-                VStack(spacing: Constraints.Padding.medium) {
-                    nameTextField
-                    placeTextField
+                VStack(spacing: Padding.big) {
+                    textFields
                     timePicker
                 }
-                .padding(.vertical, Constraints.Padding.huge)
+                .padding(EdgeInsets(
+                    top: Padding.big,
+                    leading: 0,
+                    bottom: Padding.huge,
+                    trailing: 0
+                ))
                 Spacer()
             }
             primaryButton
         }
         .actionSheet(isPresented: $viewModel.showSaveSelection, content: {
             ActionSheet(
-                title: Text("Save Options"),
-                message: Text("Remote saving means that your data will be accessible to others"),
+                title: Text(L.NewSportPerformance.actionSheetTitle),
+                message: Text(L.NewSportPerformance.actionSheetMessage),
                 buttons: [
-                    .default(Text("Save Locally"), action: viewModel.savePerformanceLocal),
-                    .default(Text("Save Remotely"), action: viewModel.savePerformanceRemotely),
+                    .default(Text(L.NewSportPerformance.actionSheetLocallyButtonTitle), action: viewModel.savePerformanceLocal),
+                    .default(Text(L.NewSportPerformance.actionSheetRemotelyButtonTitle), action: viewModel.savePerformanceRemotely),
                     .cancel()
                 ]
             )
@@ -60,32 +64,30 @@ struct NewSportPerformanceView: View {
 
 // MARK: - Components
 private extension NewSportPerformanceView {
-    var nameTextField: PrimaryTextField {
-        PrimaryTextField(
-            title: "Name:",
-            placeholder: "Running",
-            text: $viewModel.name
-        )
-    }
-    var placeTextField: PrimaryTextField {
-        PrimaryTextField(
-            title: "Place:",
-            placeholder: "Stadium",
-            text: $viewModel.place
-        )
+    var textFields: some View {
+        ForEach(PerformanceTextFieldType.allCases, id: \.self) { type in
+            PrimaryTextField(
+                title: type.title,
+                placeholder: type.placeholder,
+                getText: viewModel.getTextFieldText(for: type),
+                setText: { viewModel.setTextFieldText(for: type, text: $0) },
+                warningMessage: { viewModel.getTextFieldWarningMessage(for: type) }
+            )
+        }
     }
     var timePicker: TimePicker {
         TimePicker(
             selectedHours: $viewModel.selectedHours,
             selectedMinutes: $viewModel.selectedMinutes,
-            selectedSeconds: $viewModel.selectedSeconds
+            selectedSeconds: $viewModel.selectedSeconds,
+            warningMessage: viewModel.warningMessageForDuration
         )
     }
     var primaryButton: PrimaryButton {
         PrimaryButton(
-            title: "Add",
-            icon: Image(systemName: "plus.square.on.square"),
-            action: { viewModel.showSaveSelection.toggle() }
+            title: L.NewSportPerformance.primaryButtonTitle.string(),
+            icon: Icons.plusSquare,
+            action: viewModel.primaryButtonAction
         )
     }
 }

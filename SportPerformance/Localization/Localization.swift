@@ -29,4 +29,25 @@ enum LocalizedString {
         static let errorDeletingDataMessage: LocalizedStringResource = "An error occurred while trying to delete the data from your device. Please try again later."
     }
 
+    enum Repository {
+        static let localTitle: LocalizedStringResource = "Local"
+        static let remoteTitle: LocalizedStringResource = "Remote"
+    }
+
+    enum NewSportPerformance {
+        static let title: LocalizedStringResource = "New Sport Performance"
+        static let textFieldNameTitle: LocalizedStringResource = "Name:"
+        static let textFieldPlaceTitle: LocalizedStringResource = "Place:"
+        static let textFieldNamePlaceholder: LocalizedStringResource = "Running"
+        static let textFieldPlacePlaceholder: LocalizedStringResource = "Stadium"
+        static let textFieldNameWarningMessage: LocalizedStringResource = "Cannot be added without name"
+        static let textFieldPlaceWarningMessage: LocalizedStringResource = "Cannot be added without place"
+        static let actionSheetTitle: LocalizedStringResource = "Save Options"
+        static let actionSheetMessage: LocalizedStringResource = "Remote saving means that your data will be accessible to others"
+        static let actionSheetLocallyButtonTitle: LocalizedStringResource = "Save Locally"
+        static let actionSheetRemotelyButtonTitle: LocalizedStringResource = "Save Remotely"
+        static let durationWarningMessage: LocalizedStringResource = "Select the duration"
+        static let primaryButtonTitle: LocalizedStringResource = "Add"
+    }
+
 }

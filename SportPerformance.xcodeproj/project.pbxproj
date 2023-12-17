@@ -17,6 +17,9 @@
 		2511B57A2B2CA58200B5EAB5 /* MockDataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B5792B2CA58200B5EAB5 /* MockDataPersistenceManager.swift */; };
 		2511B57D2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B57B2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataClass.swift */; };
 		2511B57E2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B57C2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataProperties.swift */; };
+		2511B5802B2DE22E00B5EAB5 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B57F2B2DE22E00B5EAB5 /* Icons.swift */; };
+		2511B5822B2DEB1800B5EAB5 /* RepositoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B5812B2DEB1800B5EAB5 /* RepositoryLabel.swift */; };
+		2511B5842B2DED6300B5EAB5 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2511B5832B2DED6300B5EAB5 /* Repository.swift */; };
 		258941872B2204C700657376 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941862B2204C700657376 /* AppDelegate.swift */; };
 		258941892B2204C700657376 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941882B2204C700657376 /* SceneDelegate.swift */; };
 		258941912B2204C700657376 /* SportPerformance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2589418F2B2204C700657376 /* SportPerformance.xcdatamodeld */; };
@@ -48,6 +51,7 @@
 		25B4C5DB2B287AB80055EC86 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25B4C5DA2B287AB80055EC86 /* FirebaseFirestoreSwift */; };
 		25B4C5DE2B2888A30055EC86 /* FirebasePerformanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C5DD2B2888A30055EC86 /* FirebasePerformanceModel.swift */; };
 		25B4C5E12B2898AF0055EC86 /* MockFirebaseStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreService.swift */; };
+		25B64BDC2B2F0021008C3950 /* WarningMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B64BDB2B2F0021008C3950 /* WarningMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,9 @@
 		2511B5792B2CA58200B5EAB5 /* MockDataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataPersistenceManager.swift; sourceTree = "<group>"; };
 		2511B57B2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PerformanceEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2511B57C2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PerformanceEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2511B57F2B2DE22E00B5EAB5 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		2511B5812B2DEB1800B5EAB5 /* RepositoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryLabel.swift; sourceTree = "<group>"; };
+		2511B5832B2DED6300B5EAB5 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		258941832B2204C700657376 /* SportPerformance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportPerformance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		258941862B2204C700657376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		258941882B2204C700657376 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +115,7 @@
 		25B4C5D52B2878370055EC86 /* FirebaseStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStoreService.swift; sourceTree = "<group>"; };
 		25B4C5DD2B2888A30055EC86 /* FirebasePerformanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePerformanceModel.swift; sourceTree = "<group>"; };
 		25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseStoreService.swift; sourceTree = "<group>"; };
+		25B64BDB2B2F0021008C3950 /* WarningMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +154,9 @@
 				2511B55D2B28A20E00B5EAB5 /* ProgressHud.swift */,
 				2511B55F2B29D09A00B5EAB5 /* AlertConfig.swift */,
 				2511B5772B2C927A00B5EAB5 /* EmptyState.swift */,
+				258941C12B23A43200657376 /* Constraints.swift */,
+				2511B57F2B2DE22E00B5EAB5 /* Icons.swift */,
+				2511B5832B2DED6300B5EAB5 /* Repository.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -209,7 +220,6 @@
 				258941922B2204C800657376 /* Assets.xcassets */,
 				258941942B2204C800657376 /* LaunchScreen.storyboard */,
 				258941972B2204C800657376 /* Info.plist */,
-				258941C12B23A43200657376 /* Constraints.swift */,
 			);
 			path = SportPerformance;
 			sourceTree = "<group>";
@@ -291,6 +301,8 @@
 				258941D62B2615C800657376 /* PrimaryButton.swift */,
 				258941D82B261E8300657376 /* PrimaryTextField.swift */,
 				258941DA2B264C7200657376 /* TimePicker.swift */,
+				2511B5812B2DEB1800B5EAB5 /* RepositoryLabel.swift */,
+				25B64BDB2B2F0021008C3950 /* WarningMessage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -497,12 +509,16 @@
 				258941872B2204C700657376 /* AppDelegate.swift in Sources */,
 				258941C42B24BD0A00657376 /* SportPerformanceListViewModel.swift in Sources */,
 				2511B55E2B28A20E00B5EAB5 /* ProgressHud.swift in Sources */,
+				2511B5822B2DEB1800B5EAB5 /* RepositoryLabel.swift in Sources */,
+				2511B5802B2DE22E00B5EAB5 /* Icons.swift in Sources */,
 				25B4C5D62B2878370055EC86 /* FirebaseStoreService.swift in Sources */,
+				2511B5842B2DED6300B5EAB5 /* Repository.swift in Sources */,
 				258941892B2204C700657376 /* SceneDelegate.swift in Sources */,
 				258941D72B2615C800657376 /* PrimaryButton.swift in Sources */,
 				258941BB2B22189D00657376 /* MainCoordinator.swift in Sources */,
 				258941912B2204C700657376 /* SportPerformance.xcdatamodeld in Sources */,
 				258941DB2B264C7200657376 /* TimePicker.swift in Sources */,
+				25B64BDC2B2F0021008C3950 /* WarningMessage.swift in Sources */,
 				2511B5652B2B43A500B5EAB5 /* Localization.swift in Sources */,
 				2511B5782B2C927A00B5EAB5 /* EmptyState.swift in Sources */,
 				258941E42B274AA200657376 /* HostingController.swift in Sources */,

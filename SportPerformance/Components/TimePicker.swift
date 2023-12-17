@@ -12,23 +12,42 @@ struct TimePicker: View {
     @Binding private var selectedHours: Int
     @Binding private var selectedMinutes: Int
     @Binding private var selectedSeconds: Int
+    private var warningMessage: String = ""
 
     private let hrRange = 0..<24
     private let minOrSecRange = 0..<60
+
+    var showWarning: Bool {
+        !warningMessage.isEmpty && (selectedHours + selectedMinutes + selectedSeconds) == 0
+    }
 
     // MARK: Init
     init(
         selectedHours: Binding<Int>,
         selectedMinutes: Binding<Int>,
-        selectedSeconds: Binding<Int>
+        selectedSeconds: Binding<Int>,
+        warningMessage: String = ""
     ) {
         self._selectedHours = selectedHours
         self._selectedMinutes = selectedMinutes
         self._selectedSeconds = selectedSeconds
+        self.warningMessage = warningMessage
     }
 
     // MARK: Body
     var body: some View {
+        VStack(alignment: .leading) {
+            timePicker
+            warning
+        }
+        .padding(.horizontal, Padding.medium)
+        .animation(.easeInOut, value: showWarning)
+    }
+}
+
+// MARK: - Components
+private extension TimePicker {
+    var timePicker: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Duration:")
                 .font(.caption)
@@ -54,7 +73,13 @@ struct TimePicker: View {
             }
             .pickerStyle(WheelPickerStyle())
         }
-        .padding(.horizontal, Constraints.Padding.medium)
+        .background(showWarning ? Color.red.opacity(0.2) : Color.clear)
+    }
+    var warning: WarningMessage {
+        WarningMessage(
+            warningMessage: warningMessage,
+            showWarning: showWarning
+        )
     }
 }
 

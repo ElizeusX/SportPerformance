@@ -10,6 +10,9 @@
     "%lld sec" : {
 
     },
+    "Add" : {
+
+    },
     "An error occurred while trying to delete the data from your device. Please try again later." : {
 
     },
@@ -17,6 +20,12 @@
 
     },
     "An error occurred while trying to save the data locally. Please try again later." : {
+
+    },
+    "Cannot be added without name" : {
+
+    },
+    "Cannot be added without place" : {
 
     },
     "Duration:" : {
@@ -37,10 +46,28 @@
     "Key" : {
       "extractionState" : "manual"
     },
+    "Local" : {
+
+    },
     "Minutes" : {
 
     },
+    "Name:" : {
+
+    },
+    "New Sport Performance" : {
+
+    },
+    "Place:" : {
+
+    },
+    "Remote" : {
+
+    },
     "Remote saving means that your data will be accessible to others" : {
+
+    },
+    "Running" : {
 
     },
     "Save Locally" : {
@@ -53,6 +80,12 @@
 
     },
     "Seconds" : {
+
+    },
+    "Select the duration" : {
+
+    },
+    "Stadium" : {
 
     },
     "Unexpected error occured. Please try again later." : {

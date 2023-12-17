@@ -55,13 +55,13 @@ private extension SportPerformanceListView {
                     )
                 }
             }
-            .padding(.bottom, Constraints.Padding.huge)
+            .padding(.bottom, Padding.huge)
         }
     }
     var primaryButton: PrimaryButton {
         PrimaryButton(
             title: "Add new",
-            icon: Image(systemName: "figure.run.square.stack"),
+            icon: Icons.runSquare,
             action: viewModel.goToNewSportPerformance
         )
     }
