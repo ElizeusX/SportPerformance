@@ -27,7 +27,10 @@ struct SportPerformanceListView: View {
     // MARK: Body
     var body: some View {
         ZStack(alignment: .bottom) {
-            performanceList
+            VStack {
+                repositorySegmentPicker
+                performanceList
+            }
             primaryButton
         }
         .alert(item: $viewModel.alertConfig) { alert in
@@ -41,9 +44,18 @@ struct SportPerformanceListView: View {
 
 // MARK: - Components
 private extension SportPerformanceListView {
+    var repositorySegmentPicker: some View {
+        Picker("Select Repository", selection: $viewModel.selectedRepository) {
+            ForEach(Repository.allCases, id: \.self) { type in
+                Text(type.title).tag(type)
+            }
+        }
+        .pickerStyle(SegmentedPickerStyle())
+        .padding(.horizontal, Padding.medium)
+    }
     var performanceList: some View {
         List {
-            ForEach(viewModel.performanceCollection, id: \.id) { item in
+            ForEach(viewModel.filteredPerformanceCollection, id: \.id) { item in
                 PerformanceCell(
                     viewModel: PerformanceCellViewModel(
                         name: item.name,

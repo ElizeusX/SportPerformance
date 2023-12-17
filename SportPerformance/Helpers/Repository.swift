@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-enum Repository: Codable {
+enum Repository: CaseIterable, Codable {
+    case all
     case local
     case remote
 
@@ -17,6 +18,8 @@ enum Repository: Codable {
             Icons.local
         case .remote:
             Icons.remote
+        case .all:
+            Icons.run
         }
     }
     var color: Color {
@@ -25,6 +28,8 @@ enum Repository: Codable {
                 .gray.opacity(0.7)
         case .remote:
                 .blue.opacity(0.7)
+        case .all:
+                .black
         }
     }
     var title: String {
@@ -33,6 +38,8 @@ enum Repository: Codable {
             L.Repository.localTitle.string()
         case .remote:
             L.Repository.remoteTitle.string()
+        case .all:
+            "All"
         }
     }
 }

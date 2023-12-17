@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class SportPerformanceListViewModel: ObservableObject {
 
@@ -13,8 +14,12 @@ class SportPerformanceListViewModel: ObservableObject {
     private let firebaseStoreManager: FirebaseStoreManagerProtocol
     private let dataPersistenceManager: DataPersistenceManagerProtocol
 
+    private var subscriptions: Set<AnyCancellable> = []
+
     @Published var alertConfig: AlertConfig?
     @Published private(set) var performanceCollection: [PerformanceModel] = []
+    @Published var filteredPerformanceCollection: [PerformanceModel] = []
+    @Published var selectedRepository: Repository = .all
     @Published private(set) var progressHudState: ProgressHudState = .hideProgress
 
     // MARK: Init
@@ -57,6 +62,7 @@ private extension SportPerformanceListViewModel {
                     performanceCollection = combinedAndSortedData
                     progressHudState = .hideProgress
                 }
+                setupFilter()
             } catch {
                 await MainActor.run {
                     showAlert(for: error)
@@ -109,6 +115,20 @@ private extension SportPerformanceListViewModel {
                 message: error.localizedDescription
             )
         }
+    }
+
+    func setupFilter() {
+        $selectedRepository
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] type in
+                guard let self else { return }
+                if type == .all {
+                    filteredPerformanceCollection = performanceCollection
+                } else {
+                    filteredPerformanceCollection = performanceCollection.filter { $0.repository == type }
+                }
+            }
+            .store(in: &subscriptions)
     }
 }
 
