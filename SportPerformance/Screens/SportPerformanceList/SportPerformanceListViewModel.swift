@@ -73,6 +73,38 @@ private extension SportPerformanceListViewModel {
         }
     }
 
+    func showAlert(for error: Error) {
+        if let error = error as? DataPersistenceError {
+            alertConfig = AlertConfig(
+                title: error.title,
+                message: error.message
+            )
+        } else {
+            alertConfig = AlertConfig(
+                title: L.Errors.genericErrorTitle.string(),
+                message: error.localizedDescription
+            )
+        }
+    }
+
+    func setupFilter() {
+        $selectedRepository
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] type in
+                guard let self else { return }
+                if type == .all {
+                    filteredPerformanceCollection = performanceCollection
+                } else {
+                    filteredPerformanceCollection = performanceCollection.filter { $0.repository == type }
+                }
+            }
+            .store(in: &subscriptions)
+    }
+}
+
+// MARK: - Deletion methods
+private extension SportPerformanceListViewModel {
+
     func deleteLocalPerformance(with id: String) {
         do {
             try dataPersistenceManager.deletePerformance(with: id)
@@ -103,34 +135,6 @@ private extension SportPerformanceListViewModel {
         performanceCollection.removeAll { $0.id == id }
         filteredPerformanceCollection.removeAll { $0.id == id }
         progressHudState = .showSuccess
-    }
-
-    func showAlert(for error: Error) {
-        if let error = error as? DataPersistenceError {
-            alertConfig = AlertConfig(
-                title: error.title,
-                message: error.message
-            )
-        } else {
-            alertConfig = AlertConfig(
-                title: L.Errors.genericErrorTitle.string(),
-                message: error.localizedDescription
-            )
-        }
-    }
-
-    func setupFilter() {
-        $selectedRepository
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] type in
-                guard let self else { return }
-                if type == .all {
-                    filteredPerformanceCollection = performanceCollection
-                } else {
-                    filteredPerformanceCollection = performanceCollection.filter { $0.repository == type }
-                }
-            }
-            .store(in: &subscriptions)
     }
 }
 
