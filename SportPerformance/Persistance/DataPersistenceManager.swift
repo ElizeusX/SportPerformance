@@ -8,35 +8,8 @@
 import UIKit
 import CoreData
 
-enum DataPersistenceError: Error {
-    case errorSavingData
-    case errorLoadingData
-    case errorDeletingData
-
-    var title: String {
-        switch self {
-        case .errorSavingData:
-            L.Errors.errorSavingDataTitle.string()
-        case .errorLoadingData:
-            L.Errors.errorLoadingDataTitle.string()
-        case .errorDeletingData:
-            L.Errors.errorDeletingDataTitle.string()
-        }
-    }
-    var message: String {
-        switch self {
-        case .errorSavingData:
-            L.Errors.errorSavingDataMessage.string()
-        case .errorLoadingData:
-            L.Errors.errorLoadingDataMessage.string()
-        case .errorDeletingData:
-            L.Errors.errorDeletingDataMessage.string()
-        }
-    }
-}
-
 protocol DataPersistenceManagerProtocol {
-    func savePerformance(performance: PerformanceModel) throws
+    func savePerformance(performance: PerformanceEntityStub) throws
     func getPerformanceCollection() throws -> [PerformanceModel]
     func deletePerformance(with id: String) throws
 }
@@ -45,16 +18,17 @@ final class DataPersistenceManager: DataPersistenceManagerProtocol {
 
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
-    func savePerformance(performance: PerformanceModel) throws {
+    func savePerformance(performance: PerformanceEntityStub) throws {
         guard let context = appDelegate?.persistentContainer.viewContext else {
             preconditionFailure("context must exist")
         }
 
         let newPerformance = PerformanceEntity(context: context)
-        newPerformance.id = performance.id
+        newPerformance.id = UUID().uuidString
         newPerformance.name = performance.name
         newPerformance.place = performance.place
-        newPerformance.date = performance.date
+        newPerformance.duration = performance.duration
+        newPerformance.date = Date.now
 
         do {
             try context.save()

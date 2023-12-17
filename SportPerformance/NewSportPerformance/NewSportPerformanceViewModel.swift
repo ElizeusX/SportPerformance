@@ -89,13 +89,10 @@ class NewSportPerformanceViewModel: ObservableObject {
     }
 
     func savePerformanceLocal() {
-        let performance = PerformanceModel(
-            id: UUID().uuidString,
+        let performance = PerformanceEntityStub(
             name: name,
             place: place,
-            duration: getFormattedDuration(),
-            date: Date.now,
-            repository: .local
+            duration: getFormattedDuration()
         )
         do {
             try dataPersistenceManager.savePerformance(performance: performance)

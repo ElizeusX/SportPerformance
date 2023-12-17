@@ -52,6 +52,8 @@
 		25B4C5DE2B2888A30055EC86 /* FirebasePerformanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C5DD2B2888A30055EC86 /* FirebasePerformanceModel.swift */; };
 		25B4C5E12B2898AF0055EC86 /* MockFirebaseStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreManager.swift */; };
 		25B64BDC2B2F0021008C3950 /* WarningMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B64BDB2B2F0021008C3950 /* WarningMessage.swift */; };
+		25B64BDE2B2F3BEB008C3950 /* DataPersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B64BDD2B2F3BEB008C3950 /* DataPersistenceError.swift */; };
+		25B64BE02B2F3C4F008C3950 /* PerformanceEntityStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B64BDF2B2F3C4F008C3950 /* PerformanceEntityStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		25B4C5DD2B2888A30055EC86 /* FirebasePerformanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePerformanceModel.swift; sourceTree = "<group>"; };
 		25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseStoreManager.swift; sourceTree = "<group>"; };
 		25B64BDB2B2F0021008C3950 /* WarningMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningMessage.swift; sourceTree = "<group>"; };
+		25B64BDD2B2F3BEB008C3950 /* DataPersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceError.swift; sourceTree = "<group>"; };
+		25B64BDF2B2F3C4F008C3950 /* PerformanceEntityStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceEntityStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 				2511B57B2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataClass.swift */,
 				2511B57C2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataProperties.swift */,
 				2511B5752B2B8A7500B5EAB5 /* DataPersistenceManager.swift */,
+				25B64BDD2B2F3BEB008C3950 /* DataPersistenceError.swift */,
+				25B64BDF2B2F3C4F008C3950 /* PerformanceEntityStub.swift */,
 			);
 			path = Persistance;
 			sourceTree = "<group>";
@@ -505,6 +511,7 @@
 				258941DD2B26553600657376 /* NewSportPerformanceViewModel.swift in Sources */,
 				258941C02B2387B100657376 /* PerformanceCell.swift in Sources */,
 				2511B5602B29D09A00B5EAB5 /* AlertConfig.swift in Sources */,
+				25B64BDE2B2F3BEB008C3950 /* DataPersistenceError.swift in Sources */,
 				258941C22B23A43200657376 /* Constraints.swift in Sources */,
 				258941872B2204C700657376 /* AppDelegate.swift in Sources */,
 				258941C42B24BD0A00657376 /* SportPerformanceListViewModel.swift in Sources */,
@@ -519,6 +526,7 @@
 				258941912B2204C700657376 /* SportPerformance.xcdatamodeld in Sources */,
 				258941DB2B264C7200657376 /* TimePicker.swift in Sources */,
 				25B64BDC2B2F0021008C3950 /* WarningMessage.swift in Sources */,
+				25B64BE02B2F3C4F008C3950 /* PerformanceEntityStub.swift in Sources */,
 				2511B5652B2B43A500B5EAB5 /* Localization.swift in Sources */,
 				2511B5782B2C927A00B5EAB5 /* EmptyState.swift in Sources */,
 				258941E42B274AA200657376 /* HostingController.swift in Sources */,

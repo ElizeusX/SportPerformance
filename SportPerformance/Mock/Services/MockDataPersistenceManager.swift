@@ -9,7 +9,7 @@ import Foundation
 
 class MockDataPersistenceManager: DataPersistenceManagerProtocol {
 
-    func savePerformance(performance: PerformanceModel) throws {
+    func savePerformance(performance: PerformanceEntityStub) throws {
     }
     
     func getPerformanceCollection() throws -> [PerformanceModel] {
