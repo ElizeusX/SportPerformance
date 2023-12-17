@@ -8,15 +8,16 @@
 import Foundation
 import FirebaseFirestore
 
-protocol FirebaseStoreServiceProtocol {
+protocol FirebaseStoreManagerProtocol {
     func addPerformance(
         performance: FirebasePerformanceModel,
         completion: @escaping (Result<Void, Error>) -> Void
     )
     func getPerformanceCollection() async throws -> [PerformanceModel]
+    func deletePerformance(with id: String) async throws
 }
 
-final class FirebaseStoreService: FirebaseStoreServiceProtocol {
+final class FirebaseStoreManager: FirebaseStoreManagerProtocol {
 
     private let firestore = Firestore.firestore()
     private let performanceCollection = "SportsPerformance"
@@ -49,7 +50,10 @@ final class FirebaseStoreService: FirebaseStoreServiceProtocol {
         return try snapshot.documents.compactMap { try $0.data(as: FirebasePerformanceModel.self).internalModel }
     }
 
-    func deletePerformance() {
-        // TODO: deleting
+    func deletePerformance(with id: String) async throws {
+        try await firestore
+            .collection(performanceCollection)
+            .document(id)
+            .delete()
     }
 }

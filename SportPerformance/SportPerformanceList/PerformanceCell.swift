@@ -41,14 +41,16 @@ struct PerformanceCell: View {
 
     // MARK: Body
     var body: some View {
-        HStack(alignment: .center, spacing: Padding.standard) {
-            leftIcon
-            verticalDivider
-            infoStack
+        VStack {
+            HStack(alignment: .center, spacing: Padding.standard) {
+                leftIcon
+                verticalDivider
+                infoStack
+            }
+            Divider()
         }
-        .padding(.horizontal, Padding.medium)
+        .padding(.horizontal, Padding.small)
         .frame(height: 75)
-        Divider()
     }
 }
 

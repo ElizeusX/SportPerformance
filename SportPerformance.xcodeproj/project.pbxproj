@@ -46,11 +46,11 @@
 		258941E72B275FBE00657376 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 258941E62B275FBE00657376 /* GoogleService-Info.plist */; };
 		25B4C5D12B27B1580055EC86 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 25B4C5D02B27B1580055EC86 /* FirebaseDatabase */; };
 		25B4C5D32B27B1580055EC86 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25B4C5D22B27B1580055EC86 /* FirebaseDatabaseSwift */; };
-		25B4C5D62B2878370055EC86 /* FirebaseStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C5D52B2878370055EC86 /* FirebaseStoreService.swift */; };
+		25B4C5D62B2878370055EC86 /* FirebaseStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C5D52B2878370055EC86 /* FirebaseStoreManager.swift */; };
 		25B4C5D92B287AB10055EC86 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 25B4C5D82B287AB10055EC86 /* FirebaseFirestore */; };
 		25B4C5DB2B287AB80055EC86 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25B4C5DA2B287AB80055EC86 /* FirebaseFirestoreSwift */; };
 		25B4C5DE2B2888A30055EC86 /* FirebasePerformanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C5DD2B2888A30055EC86 /* FirebasePerformanceModel.swift */; };
-		25B4C5E12B2898AF0055EC86 /* MockFirebaseStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreService.swift */; };
+		25B4C5E12B2898AF0055EC86 /* MockFirebaseStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreManager.swift */; };
 		25B64BDC2B2F0021008C3950 /* WarningMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B64BDB2B2F0021008C3950 /* WarningMessage.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,9 +112,9 @@
 		258941E12B274A6F00657376 /* NavigationPropagation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPropagation.swift; sourceTree = "<group>"; };
 		258941E32B274AA200657376 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		258941E62B275FBE00657376 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		25B4C5D52B2878370055EC86 /* FirebaseStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStoreService.swift; sourceTree = "<group>"; };
+		25B4C5D52B2878370055EC86 /* FirebaseStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStoreManager.swift; sourceTree = "<group>"; };
 		25B4C5DD2B2888A30055EC86 /* FirebasePerformanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePerformanceModel.swift; sourceTree = "<group>"; };
-		25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseStoreService.swift; sourceTree = "<group>"; };
+		25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseStoreManager.swift; sourceTree = "<group>"; };
 		25B64BDB2B2F0021008C3950 /* WarningMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -329,7 +329,7 @@
 			children = (
 				25B4C5DC2B28887F0055EC86 /* FirebaseModels */,
 				258941C52B24BD8900657376 /* InternalModels */,
-				25B4C5D52B2878370055EC86 /* FirebaseStoreService.swift */,
+				25B4C5D52B2878370055EC86 /* FirebaseStoreManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -352,7 +352,7 @@
 		25B4C5DF2B28988E0055EC86 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreService.swift */,
+				25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreManager.swift */,
 				2511B5792B2CA58200B5EAB5 /* MockDataPersistenceManager.swift */,
 			);
 			path = Services;
@@ -511,7 +511,7 @@
 				2511B55E2B28A20E00B5EAB5 /* ProgressHud.swift in Sources */,
 				2511B5822B2DEB1800B5EAB5 /* RepositoryLabel.swift in Sources */,
 				2511B5802B2DE22E00B5EAB5 /* Icons.swift in Sources */,
-				25B4C5D62B2878370055EC86 /* FirebaseStoreService.swift in Sources */,
+				25B4C5D62B2878370055EC86 /* FirebaseStoreManager.swift in Sources */,
 				2511B5842B2DED6300B5EAB5 /* Repository.swift in Sources */,
 				258941892B2204C700657376 /* SceneDelegate.swift in Sources */,
 				258941D72B2615C800657376 /* PrimaryButton.swift in Sources */,
@@ -533,7 +533,7 @@
 				258941CB2B24C5AF00657376 /* MockData.swift in Sources */,
 				2511B57E2B2DCBCD00B5EAB5 /* PerformanceEntity+CoreDataProperties.swift in Sources */,
 				258941D12B24E1B200657376 /* MainCoordinatorDelegates.swift in Sources */,
-				25B4C5E12B2898AF0055EC86 /* MockFirebaseStoreService.swift in Sources */,
+				25B4C5E12B2898AF0055EC86 /* MockFirebaseStoreManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,6 +716,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -747,6 +748,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

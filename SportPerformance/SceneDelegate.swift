@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
         navigationController = MainCoordinator(
-            firebaseStoreService: FirebaseStoreService(),
+            firebaseStoreManager: FirebaseStoreManager(),
             dataPersistenceManager: DataPersistenceManager()
         )
         navigationController?.navigationBar.tintColor = .black

@@ -36,7 +36,7 @@ protocol NewSportPerformanceDelegate: AnyObject {
 class NewSportPerformanceViewModel: ObservableObject {
 
     private weak var coordinator: NewSportPerformanceListCoordinatorDelegate?
-    private let firebaseStoreService: FirebaseStoreServiceProtocol
+    private let firebaseStoreManager: FirebaseStoreManagerProtocol
     private let dataPersistenceManager: DataPersistenceManagerProtocol
     private let delegate: NewSportPerformanceDelegate?
 
@@ -55,12 +55,12 @@ class NewSportPerformanceViewModel: ObservableObject {
     // MARK: Init
     init(
         coordinator: NewSportPerformanceListCoordinatorDelegate?,
-        firebaseStoreService: FirebaseStoreServiceProtocol,
+        firebaseStoreManager: FirebaseStoreManagerProtocol,
         dataPersistenceManager: DataPersistenceManagerProtocol,
         delegate: NewSportPerformanceDelegate?
     ) {
         self.coordinator = coordinator
-        self.firebaseStoreService = firebaseStoreService
+        self.firebaseStoreManager = firebaseStoreManager
         self.dataPersistenceManager = dataPersistenceManager
         self.delegate = delegate
     }
@@ -74,7 +74,7 @@ class NewSportPerformanceViewModel: ObservableObject {
             date: Date.now
         )
         progressHudState = .showProgress
-        firebaseStoreService.addPerformance(performance: performanceModel) { [weak self] result in
+        firebaseStoreManager.addPerformance(performance: performanceModel) { [weak self] result in
             switch result {
             case .success:
                 self?.updateListAndFinish()

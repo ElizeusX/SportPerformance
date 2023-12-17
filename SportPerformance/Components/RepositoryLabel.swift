@@ -18,16 +18,21 @@ struct RepositoryLabel: View {
 
     // MARK: Body
     var body: some View {
-        Label(
-            title: { Text(repository.title).bold() },
-            icon: { repository.icon }
-        )
+        HStack(spacing: Padding.small) {
+            repository.icon
+            Text(repository.title).bold()
+        }
         .font(.caption2)
-        .padding(.horizontal, Padding.small)
-        .padding(4)
+        .padding(EdgeInsets(
+            top: 4,
+            leading: Padding.small,
+            bottom: 4,
+            trailing: Padding.small
+        ))
         .foregroundStyle(.background)
         .background(Color(repository.color))
         .clipShape(.capsule)
+        .frame(alignment: .leading)
     }
 }
 

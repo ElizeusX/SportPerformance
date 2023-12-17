@@ -42,21 +42,34 @@ struct SportPerformanceListView: View {
 // MARK: - Components
 private extension SportPerformanceListView {
     var performanceList: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(viewModel.performanceCollection, id: \.id) { item in
-                    PerformanceCell(
-                        viewModel: PerformanceCellViewModel(
-                            name: item.name,
-                            place: item.place,
-                            time: item.duration,
-                            fromRepository: item.repository
-                        )
+        List {
+            ForEach(viewModel.performanceCollection, id: \.id) { item in
+                PerformanceCell(
+                    viewModel: PerformanceCellViewModel(
+                        name: item.name,
+                        place: item.place,
+                        time: item.duration,
+                        fromRepository: item.repository
                     )
+                ).swipeActions(edge: .trailing) {
+                    Button {
+                        withAnimation {
+                            viewModel.deletePerformance(
+                                with: item.id,
+                                for: item.repository
+                            )
+                        }
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                    .tint(.red)
+                    .frame(height: 75)
                 }
             }
-            .padding(.bottom, Padding.huge)
+            .listRowSeparator(.hidden)
         }
+        .padding(.bottom, Padding.huge)
+        .listStyle(PlainListStyle())
     }
     var primaryButton: PrimaryButton {
         PrimaryButton(
@@ -72,7 +85,7 @@ private extension SportPerformanceListView {
     SportPerformanceListView(
         viewModel: SportPerformanceListViewModel(
             coordinator: nil,
-            firebaseStoreService: MockFirebaseStoreService(),
+            firebaseStoreManager: MockFirebaseStoreManager(),
             dataPersistenceManager: MockDataPersistenceManager()
         ),
         navigationPropagation: NavigationPropagation()

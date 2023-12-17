@@ -10,7 +10,7 @@ import Foundation
 class SportPerformanceListViewModel: ObservableObject {
 
     private weak var coordinator: PerformanceListCoordinatorDelegate?
-    private let firebaseStoreService: FirebaseStoreServiceProtocol
+    private let firebaseStoreManager: FirebaseStoreManagerProtocol
     private let dataPersistenceManager: DataPersistenceManagerProtocol
 
     @Published var alertConfig: AlertConfig?
@@ -20,11 +20,11 @@ class SportPerformanceListViewModel: ObservableObject {
     // MARK: Init
     init(
         coordinator: PerformanceListCoordinatorDelegate?,
-        firebaseStoreService: FirebaseStoreServiceProtocol,
+        firebaseStoreManager: FirebaseStoreManagerProtocol,
         dataPersistenceManager: DataPersistenceManagerProtocol
     ) {
         self.coordinator = coordinator
-        self.firebaseStoreService = firebaseStoreService
+        self.firebaseStoreManager = firebaseStoreManager
         self.dataPersistenceManager = dataPersistenceManager
         self.getPerformanceCollection()
     }
@@ -33,16 +33,25 @@ class SportPerformanceListViewModel: ObservableObject {
     func goToNewSportPerformance() {
         coordinator?.goToNewSportPerformance(delegate: self)
     }
+
+    func deletePerformance(with id: String, for type: Repository) {
+        if type == .local {
+            deleteLocalPerformance(with: id)
+        } else {
+            deleteRemotePerformance(with: id)
+        }
+    }
 }
 
 // MARK: - Private methods
 private extension SportPerformanceListViewModel {
 
     func getPerformanceCollection() {
+        progressHudState = .showProgress
         Task {
             do {
                 let localData = try dataPersistenceManager.getPerformanceCollection()
-                let remoteData = try await firebaseStoreService.getPerformanceCollection()
+                let remoteData = try await firebaseStoreManager.getPerformanceCollection()
                 let combinedAndSortedData = (localData + remoteData).sorted { $0.date > $1.date }
                 await MainActor.run {
                     performanceCollection = combinedAndSortedData
@@ -50,20 +59,55 @@ private extension SportPerformanceListViewModel {
                 }
             } catch {
                 await MainActor.run {
-                    if let error = error as? DataPersistenceError {
-                        alertConfig = AlertConfig(
-                            title: error.title,
-                            message: error.message
-                        )
-                    } else {
-                        alertConfig = AlertConfig(
-                            title: L.Errors.genericErrorTitle.string(),
-                            message: error.localizedDescription
-                        )
-                    }
+                    showAlert(for: error)
                     progressHudState = .hideProgress
                 }
             }
+        }
+    }
+
+    func deleteLocalPerformance(with id: String) {
+        do {
+            try dataPersistenceManager.deletePerformance(with: id)
+            deleteFromPerformanceCollection(with: id)
+        } catch {
+            showAlert(for: error)
+        }
+    }
+
+    func deleteRemotePerformance(with id: String) {
+        progressHudState = .showSuccess
+        Task {
+            do {
+                try await firebaseStoreManager.deletePerformance(with: id)
+                await MainActor.run {
+                    deleteFromPerformanceCollection(with: id)
+                }
+            } catch {
+                await MainActor.run {
+                    showAlert(for: error)
+                    progressHudState = .hideProgress
+                }
+            }
+        }
+    }
+
+    func deleteFromPerformanceCollection(with id: String) {
+        performanceCollection.removeAll { $0.id == id }
+        progressHudState = .showSuccess
+    }
+
+    func showAlert(for error: Error) {
+        if let error = error as? DataPersistenceError {
+            alertConfig = AlertConfig(
+                title: error.title,
+                message: error.message
+            )
+        } else {
+            alertConfig = AlertConfig(
+                title: L.Errors.genericErrorTitle.string(),
+                message: error.localizedDescription
+            )
         }
     }
 }
