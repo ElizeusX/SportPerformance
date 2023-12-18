@@ -19,7 +19,7 @@ class SportPerformanceListViewModel: ObservableObject {
 
     @Published var alertConfig: AlertConfig?
     @Published var selectedRepository: Repository = .all
-    @Published private(set)var filteredPerformanceCollection: [PerformanceModel] = []
+    @Published private(set) var filteredPerformanceCollection: [PerformanceModel] = []
     @Published private(set) var progressHudState: ProgressHudState = .hideProgress
 
     var showEmptyState: Bool {
