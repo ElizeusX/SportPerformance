@@ -26,24 +26,25 @@ struct PrimaryButton: View {
 
     // MARK: Body
     var body: some View {
-            Button(action: action, label: {
+        Button(action: action, label: {
+            HStack {
                 Spacer()
-                HStack {
-                    Text(title)
-                    icon
-                }
-                .foregroundColor(.green.opacity(0.9))
-                .frame(height: 50)
+                Text(title)
+                icon
                 Spacer()
-            })
+            }
+            .foregroundColor(Color.white)
+            .font(.headline)
+            .frame(height: 50)
             .background(Color.black.opacity(0.9))
             .clipShape(.capsule)
-            .padding(EdgeInsets(
-                top: 0,
-                leading: Padding.big,
-                bottom: Padding.standard,
-                trailing: Padding.big
-            ))
+        })
+        .padding(EdgeInsets(
+            top: 0,
+            leading: Padding.big,
+            bottom: Padding.standard,
+            trailing: Padding.big
+        ))
     }
 }
 
