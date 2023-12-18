@@ -15,11 +15,11 @@ class SportPerformanceListViewModel: ObservableObject {
     private let dataPersistenceManager: DataPersistenceManagerProtocol
 
     private var subscriptions: Set<AnyCancellable> = []
+    private var performanceCollection: [PerformanceModel] = []
 
     @Published var alertConfig: AlertConfig?
-    @Published private(set) var performanceCollection: [PerformanceModel] = []
-    @Published var filteredPerformanceCollection: [PerformanceModel] = []
     @Published var selectedRepository: Repository = .all
+    @Published private(set)var filteredPerformanceCollection: [PerformanceModel] = []
     @Published private(set) var progressHudState: ProgressHudState = .hideProgress
 
     // MARK: Init
