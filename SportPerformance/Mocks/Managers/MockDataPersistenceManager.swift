@@ -13,7 +13,7 @@ class MockDataPersistenceManager: DataPersistenceManagerProtocol {
     }
     
     func getPerformanceCollection() throws -> [PerformanceModel] {
-        MockData.performanceData
+        MockData.performanceData.filter { $0.repository == .local }
     }
     
     func deletePerformance(with id: String) throws {

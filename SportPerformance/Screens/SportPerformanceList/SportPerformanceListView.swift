@@ -29,7 +29,11 @@ struct SportPerformanceListView: View {
         ZStack(alignment: .bottom) {
             VStack {
                 repositorySegmentPicker
-                performanceList
+                if viewModel.showEmptyState {
+                    emptyState
+                } else {
+                    performanceList
+                }
             }
             primaryButton
         }
@@ -52,6 +56,12 @@ private extension SportPerformanceListView {
         }
         .pickerStyle(SegmentedPickerStyle())
         .padding(.horizontal, Padding.medium)
+    }
+    var emptyState: EmptyStateView {
+        EmptyStateView(
+            title: L.SportPerformanceList.emptyStateTitle,
+            message: L.SportPerformanceList.emptyStateMessage
+        )
     }
     var performanceList: some View {
         List {

@@ -61,6 +61,9 @@
     "New Sport Performance" : {
 
     },
+    "Not found" : {
+
+    },
     "Place:" : {
 
     },
@@ -92,6 +95,9 @@
 
     },
     "Stadium" : {
+
+    },
+    "The sports performances data is not found." : {
 
     },
     "Unexpected error occured. Please try again later." : {

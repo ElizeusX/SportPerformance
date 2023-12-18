@@ -50,4 +50,9 @@ enum LocalizedString {
         static let primaryButtonTitle: LocalizedStringResource = "Add"
     }
 
+    enum SportPerformanceList {
+        static let emptyStateTitle: LocalizedStringResource = "Not found"
+        static let emptyStateMessage: LocalizedStringResource = "The sports performances data is not found."
+    }
+
 }

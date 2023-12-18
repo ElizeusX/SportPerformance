@@ -14,7 +14,7 @@ final class MockFirebaseStoreManager: FirebaseStoreManagerProtocol {
     }
     
     func getPerformanceCollection() async throws -> [PerformanceModel] {
-        MockData.performanceData
+        MockData.performanceData.filter { $0.repository == .remote }
     }
 
     func deletePerformance(with id: String) async throws {

@@ -22,6 +22,10 @@ class SportPerformanceListViewModel: ObservableObject {
     @Published private(set)var filteredPerformanceCollection: [PerformanceModel] = []
     @Published private(set) var progressHudState: ProgressHudState = .hideProgress
 
+    var showEmptyState: Bool {
+        filteredPerformanceCollection.isEmpty
+    }
+
     // MARK: Init
     init(
         coordinator: PerformanceListCoordinatorDelegate?,

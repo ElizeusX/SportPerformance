@@ -44,6 +44,7 @@
 		258941E22B274A6F00657376 /* NavigationPropagation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941E12B274A6F00657376 /* NavigationPropagation.swift */; };
 		258941E42B274AA200657376 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941E32B274AA200657376 /* HostingController.swift */; };
 		258941E72B275FBE00657376 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 258941E62B275FBE00657376 /* GoogleService-Info.plist */; };
+		2597C4A62B302E3100BC1B75 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597C4A52B302E3100BC1B75 /* EmptyStateView.swift */; };
 		25B4C5D12B27B1580055EC86 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 25B4C5D02B27B1580055EC86 /* FirebaseDatabase */; };
 		25B4C5D32B27B1580055EC86 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25B4C5D22B27B1580055EC86 /* FirebaseDatabaseSwift */; };
 		25B4C5D62B2878370055EC86 /* FirebaseStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C5D52B2878370055EC86 /* FirebaseStoreManager.swift */; };
@@ -114,6 +115,7 @@
 		258941E12B274A6F00657376 /* NavigationPropagation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPropagation.swift; sourceTree = "<group>"; };
 		258941E32B274AA200657376 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		258941E62B275FBE00657376 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2597C4A52B302E3100BC1B75 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		25B4C5D52B2878370055EC86 /* FirebaseStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStoreManager.swift; sourceTree = "<group>"; };
 		25B4C5DD2B2888A30055EC86 /* FirebasePerformanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePerformanceModel.swift; sourceTree = "<group>"; };
 		25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseStoreManager.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				258941DA2B264C7200657376 /* TimePicker.swift */,
 				2511B5812B2DEB1800B5EAB5 /* RepositoryLabel.swift */,
 				25B64BDB2B2F0021008C3950 /* WarningMessage.swift */,
+				2597C4A52B302E3100BC1B75 /* EmptyStateView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				258941BB2B22189D00657376 /* MainCoordinator.swift in Sources */,
 				258941912B2204C700657376 /* SportPerformance.xcdatamodeld in Sources */,
 				258941DB2B264C7200657376 /* TimePicker.swift in Sources */,
+				2597C4A62B302E3100BC1B75 /* EmptyStateView.swift in Sources */,
 				25B64BDC2B2F0021008C3950 /* WarningMessage.swift in Sources */,
 				25B64BE02B2F3C4F008C3950 /* PerformanceEntityStub.swift in Sources */,
 				2511B5652B2B43A500B5EAB5 /* Localization.swift in Sources */,
