@@ -124,4 +124,28 @@ final class SportPerformanceListViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
         XCTAssertNil(viewModel.alertConfig)
     }
+
+    func testDeleteLocalItemWithSuccess() {
+        let expectation = XCTestExpectation(description: "Filtered data should be loaded successfully")
+        let viewModel = SportPerformanceListViewModel(
+            coordinator: nil,
+            firebaseStoreManager: MockFirebaseStoreManager(),
+            dataPersistenceManager: MockDataPersistenceManager()
+        )
+        let localMockItem = try! XCTUnwrap(MockData.performanceData.first { $0.repository == .local })
+        viewModel.selectedRepository = .all
+        viewModel.$filteredPerformanceCollection
+            .dropFirst()
+            .sink { _ in
+                expectation.fulfill()
+            }
+            .store(in: &subscriptions)
+
+        wait(for: [expectation], timeout: 1)
+        XCTAssertTrue(viewModel.filteredPerformanceCollection.contains(localMockItem))
+        viewModel.deletePerformance(with: localMockItem.id, for: .local)
+        XCTAssertFalse(viewModel.filteredPerformanceCollection.contains(localMockItem))
+        XCTAssertNil(viewModel.alertConfig)
+    }
+
 }
