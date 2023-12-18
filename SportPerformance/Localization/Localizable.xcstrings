@@ -62,6 +62,9 @@
     "Local" : {
 
     },
+    "min" : {
+
+    },
     "Name:" : {
 
     },
@@ -90,6 +93,9 @@
 
     },
     "Save Remotely" : {
+
+    },
+    "sec" : {
 
     },
     "Select repository" : {

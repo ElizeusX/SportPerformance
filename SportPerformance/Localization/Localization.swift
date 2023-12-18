@@ -65,8 +65,8 @@ enum LocalizedString {
         static let hoursPickerText: LocalizedStringResource = "Hours"
         static let hoursShortText: LocalizedStringResource = "hr"
         static let minutesPickerText: LocalizedStringResource = "Hours"
-        static let minutesShortText: LocalizedStringResource = "hr"
+        static let minutesShortText: LocalizedStringResource = "min"
         static let secondsPickerText: LocalizedStringResource = "Hours"
-        static let secondsShortText: LocalizedStringResource = "hr"
+        static let secondsShortText: LocalizedStringResource = "sec"
     }
 }
