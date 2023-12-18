@@ -9,7 +9,7 @@ import XCTest
 import Combine
 @testable import SportPerformance
 
-final class SportPerformanceTests: XCTestCase {
+final class SportPerformanceListViewModelTests: XCTestCase {
 
     var subscriptions: Set<AnyCancellable> = []
 

@@ -25,7 +25,7 @@
 		258941912B2204C700657376 /* SportPerformance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2589418F2B2204C700657376 /* SportPerformance.xcdatamodeld */; };
 		258941932B2204C800657376 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 258941922B2204C800657376 /* Assets.xcassets */; };
 		258941962B2204C800657376 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258941942B2204C800657376 /* LaunchScreen.storyboard */; };
-		258941A12B2204C800657376 /* SportPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941A02B2204C800657376 /* SportPerformanceTests.swift */; };
+		258941A12B2204C800657376 /* SportPerformanceListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941A02B2204C800657376 /* SportPerformanceListViewModelTests.swift */; };
 		258941AB2B2204C800657376 /* SportPerformanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941AA2B2204C800657376 /* SportPerformanceUITests.swift */; };
 		258941AD2B2204C800657376 /* SportPerformanceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941AC2B2204C800657376 /* SportPerformanceUITestsLaunchTests.swift */; };
 		258941BB2B22189D00657376 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258941BA2B22189D00657376 /* MainCoordinator.swift */; };
@@ -95,7 +95,7 @@
 		258941952B2204C800657376 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		258941972B2204C800657376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2589419C2B2204C800657376 /* SportPerformanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportPerformanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		258941A02B2204C800657376 /* SportPerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPerformanceTests.swift; sourceTree = "<group>"; };
+		258941A02B2204C800657376 /* SportPerformanceListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPerformanceListViewModelTests.swift; sourceTree = "<group>"; };
 		258941A62B2204C800657376 /* SportPerformanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportPerformanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		258941AA2B2204C800657376 /* SportPerformanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPerformanceUITests.swift; sourceTree = "<group>"; };
 		258941AC2B2204C800657376 /* SportPerformanceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPerformanceUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 		2589419F2B2204C800657376 /* SportPerformanceTests */ = {
 			isa = PBXGroup;
 			children = (
-				258941A02B2204C800657376 /* SportPerformanceTests.swift */,
+				258941A02B2204C800657376 /* SportPerformanceListViewModelTests.swift */,
 			);
 			path = SportPerformanceTests;
 			sourceTree = "<group>";
@@ -553,7 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				258941A12B2204C800657376 /* SportPerformanceTests.swift in Sources */,
+				258941A12B2204C800657376 /* SportPerformanceListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
