@@ -19,3 +19,18 @@ class MockDataPersistenceManager: DataPersistenceManagerProtocol {
     func deletePerformance(with id: String) throws {
     }
 }
+
+class MockDataPersistenceManagerWithError: DataPersistenceManagerProtocol {
+
+    func savePerformance(performance: PerformanceEntityStub) throws {
+        throw GenericError.unexpectedError
+    }
+
+    func getPerformanceCollection() throws -> [PerformanceModel] {
+        throw GenericError.unexpectedError
+    }
+
+    func deletePerformance(with id: String) throws {
+        throw GenericError.unexpectedError
+    }
+}

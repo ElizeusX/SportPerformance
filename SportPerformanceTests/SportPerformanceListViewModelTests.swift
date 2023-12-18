@@ -39,6 +39,46 @@ final class SportPerformanceListViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.alertConfig)
     }
 
+    func testLoadFilteredDataFromFirebaseWithError() {
+        let expectation = XCTestExpectation(description: "Filtered data should not be loaded")
+        let viewModel = SportPerformanceListViewModel(
+            coordinator: nil,
+            firebaseStoreManager: MockFirebaseStoreManagerWithError(),
+            dataPersistenceManager: MockDataPersistenceManager()
+        )
+        viewModel.selectedRepository = .remote
+        viewModel.$alertConfig
+            .dropFirst()
+            .sink { alert in
+                XCTAssertEqual(alert?.message, GenericError.unexpectedError.localizedDescription)
+                expectation.fulfill()
+            }
+            .store(in: &subscriptions)
+
+        wait(for: [expectation], timeout: 1)
+        XCTAssertEqual(viewModel.filteredPerformanceCollection, [])
+    }
+
+    func testLoadFilteredDataFromDataPersistenceWithError() {
+        let expectation = XCTestExpectation(description: "Filtered data should not be loaded")
+        let viewModel = SportPerformanceListViewModel(
+            coordinator: nil,
+            firebaseStoreManager: MockFirebaseStoreManager(),
+            dataPersistenceManager: MockDataPersistenceManagerWithError()
+        )
+        viewModel.selectedRepository = .local
+        viewModel.$alertConfig
+            .dropFirst()
+            .sink { alert in
+                XCTAssertEqual(alert?.message, GenericError.unexpectedError.localizedDescription)
+                expectation.fulfill()
+            }
+            .store(in: &subscriptions)
+
+        wait(for: [expectation], timeout: 1)
+        XCTAssertEqual(viewModel.filteredPerformanceCollection, [])
+    }
+
     func testLoadFilteredLocalDataWithSuccess() {
         let expectation = XCTestExpectation(description: "Filtered data should be loaded successfully")
         let viewModel = SportPerformanceListViewModel(
