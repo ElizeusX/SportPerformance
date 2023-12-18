@@ -47,8 +47,8 @@
 		2597C4A62B302E3100BC1B75 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597C4A52B302E3100BC1B75 /* EmptyStateView.swift */; };
 		2597C4AA2B30548C00BC1B75 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597C4A92B30548C00BC1B75 /* GenericError.swift */; };
 		2597C4AC2B30735600BC1B75 /* NewSportPerformanceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2597C4AB2B30735600BC1B75 /* NewSportPerformanceViewModelTests.swift */; };
-		2597C4B02B309A9500BC1B75 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2597C4AE2B309A9500BC1B75 /* 1.png */; };
-		2597C4B12B309A9500BC1B75 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2597C4AF2B309A9500BC1B75 /* 2.png */; };
+		2597C4B42B30A62900BC1B75 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2597C4B22B30A62900BC1B75 /* 1.png */; };
+		2597C4B52B30A62900BC1B75 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2597C4B32B30A62900BC1B75 /* 2.png */; };
 		25B4C5D12B27B1580055EC86 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 25B4C5D02B27B1580055EC86 /* FirebaseDatabase */; };
 		25B4C5D32B27B1580055EC86 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 25B4C5D22B27B1580055EC86 /* FirebaseDatabaseSwift */; };
 		25B4C5D62B2878370055EC86 /* FirebaseStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C5D52B2878370055EC86 /* FirebaseStoreManager.swift */; };
@@ -122,8 +122,8 @@
 		2597C4A52B302E3100BC1B75 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		2597C4A92B30548C00BC1B75 /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
 		2597C4AB2B30735600BC1B75 /* NewSportPerformanceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSportPerformanceViewModelTests.swift; sourceTree = "<group>"; };
-		2597C4AE2B309A9500BC1B75 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		2597C4AF2B309A9500BC1B75 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		2597C4B22B30A62900BC1B75 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		2597C4B32B30A62900BC1B75 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		25B4C5D52B2878370055EC86 /* FirebaseStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStoreManager.swift; sourceTree = "<group>"; };
 		25B4C5DD2B2888A30055EC86 /* FirebasePerformanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePerformanceModel.swift; sourceTree = "<group>"; };
 		25B4C5E02B2898AF0055EC86 /* MockFirebaseStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseStoreManager.swift; sourceTree = "<group>"; };
@@ -346,8 +346,8 @@
 		2597C4AD2B309A6700BC1B75 /* Preview */ = {
 			isa = PBXGroup;
 			children = (
-				2597C4AE2B309A9500BC1B75 /* 1.png */,
-				2597C4AF2B309A9500BC1B75 /* 2.png */,
+				2597C4B22B30A62900BC1B75 /* 1.png */,
+				2597C4B32B30A62900BC1B75 /* 2.png */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -510,12 +510,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2597C4B12B309A9500BC1B75 /* 2.png in Resources */,
+				2597C4B52B30A62900BC1B75 /* 2.png in Resources */,
 				258941962B2204C800657376 /* LaunchScreen.storyboard in Resources */,
 				258941932B2204C800657376 /* Assets.xcassets in Resources */,
 				2511B5632B2B363600B5EAB5 /* Localizable.xcstrings in Resources */,
 				258941E72B275FBE00657376 /* GoogleService-Info.plist in Resources */,
-				2597C4B02B309A9500BC1B75 /* 1.png in Resources */,
+				2597C4B42B30A62900BC1B75 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
