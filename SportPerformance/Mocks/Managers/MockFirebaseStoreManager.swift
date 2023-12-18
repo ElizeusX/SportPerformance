@@ -35,3 +35,18 @@ final class MockFirebaseStoreManagerWithError: FirebaseStoreManagerProtocol {
         throw GenericError.unexpectedError
     }
 }
+
+final class MockFirebaseStoreManagerWithDeleteError: FirebaseStoreManagerProtocol {
+
+    func addPerformance(performance: FirebasePerformanceModel, completion: @escaping (Result<Void, Error>) -> Void) {
+        completion(.failure(GenericError.unexpectedError))
+    }
+
+    func getPerformanceCollection() async throws -> [PerformanceModel] {
+        MockData.performanceData.filter { $0.repository == .remote }
+    }
+
+    func deletePerformance(with id: String) async throws {
+        throw GenericError.unexpectedError
+    }
+}

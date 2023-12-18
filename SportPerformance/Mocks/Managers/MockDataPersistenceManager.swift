@@ -34,3 +34,17 @@ class MockDataPersistenceManagerWithError: DataPersistenceManagerProtocol {
         throw DataPersistenceError.errorDeletingData
     }
 }
+
+class MockDataPersistenceManagerWithDeleteError: DataPersistenceManagerProtocol {
+
+    func savePerformance(performance: PerformanceEntityStub) throws {
+    }
+
+    func getPerformanceCollection() throws -> [PerformanceModel] {
+        MockData.performanceData.filter { $0.repository == .local }
+    }
+
+    func deletePerformance(with id: String) throws {
+        throw DataPersistenceError.errorDeletingData
+    }
+}
