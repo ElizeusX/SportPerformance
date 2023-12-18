@@ -11,7 +11,7 @@ enum MockData {
     static let performanceData = [
         PerformanceModel(
             id: UUID().uuidString,
-            name: "Name",
+            name: "Name1",
             place: "Place",
             duration: "Duration",
             date: Date.now,
@@ -19,10 +19,10 @@ enum MockData {
         ),
         PerformanceModel(
             id: UUID().uuidString,
-            name: "Name",
+            name: "Name2",
             place: "Place",
             duration: "Duration",
-            date: Date.now,
+            date: Date.now + 1,
             repository: .local
         )
     ]

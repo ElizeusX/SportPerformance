@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PerformanceModel: Codable {
+struct PerformanceModel: Codable, Equatable {
     let id: String
     let name: String
     let place: String

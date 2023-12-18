@@ -77,12 +77,10 @@ class NewSportPerformanceViewModel: ObservableObject {
         firebaseStoreManager.addPerformance(performance: performanceModel) { [weak self] result in
             switch result {
             case .success:
+                self?.progressHudState = .showSuccess
                 self?.updateListAndFinish()
             case .failure(let error):
-                self?.alertConfig = AlertConfig(
-                    title: L.Errors.genericErrorTitle.string(),
-                    message: error.localizedDescription
-                )
+                self?.showAlert(for: error)
                 self?.progressHudState = .hideProgress
             }
         }
@@ -98,10 +96,7 @@ class NewSportPerformanceViewModel: ObservableObject {
             try dataPersistenceManager.savePerformance(performance: performance)
             updateListAndFinish()
         } catch {
-            alertConfig = AlertConfig(
-                title: L.Errors.genericErrorTitle.string(),
-                message: error.localizedDescription
-            )
+            showAlert(for: error)
         }
     }
 
@@ -173,5 +168,19 @@ private extension NewSportPerformanceViewModel {
     func updateListAndFinish() {
         delegate?.updatePerformanceList()
         coordinator?.finishNewSportPerformance()
+    }
+
+    func showAlert(for error: Error) {
+        if let error = error as? DataPersistenceError {
+            alertConfig = AlertConfig(
+                title: error.title,
+                message: error.message
+            )
+        } else {
+            alertConfig = AlertConfig(
+                title: L.Errors.genericErrorTitle.string(),
+                message: error.localizedDescription
+            )
+        }
     }
 }
