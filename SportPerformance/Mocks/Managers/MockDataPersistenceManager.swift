@@ -23,14 +23,14 @@ class MockDataPersistenceManager: DataPersistenceManagerProtocol {
 class MockDataPersistenceManagerWithError: DataPersistenceManagerProtocol {
 
     func savePerformance(performance: PerformanceEntityStub) throws {
-        throw GenericError.unexpectedError
+        throw DataPersistenceError.errorSavingData
     }
 
     func getPerformanceCollection() throws -> [PerformanceModel] {
-        throw GenericError.unexpectedError
+        throw DataPersistenceError.errorLoadingData
     }
 
     func deletePerformance(with id: String) throws {
-        throw GenericError.unexpectedError
+        throw DataPersistenceError.errorDeletingData
     }
 }

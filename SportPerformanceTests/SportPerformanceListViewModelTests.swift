@@ -70,7 +70,7 @@ final class SportPerformanceListViewModelTests: XCTestCase {
         viewModel.$alertConfig
             .dropFirst()
             .sink { alert in
-                XCTAssertEqual(alert?.message, GenericError.unexpectedError.localizedDescription)
+                XCTAssertEqual(alert?.message, DataPersistenceError.errorLoadingData.message)
                 expectation.fulfill()
             }
             .store(in: &subscriptions)
@@ -148,4 +148,34 @@ final class SportPerformanceListViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.alertConfig)
     }
 
+    func testDeleteRemoteItemWithSuccess() {
+        let expectation = XCTestExpectation(description: "Filtered data should be loaded successfully")
+        let expectation2 = XCTestExpectation(description: "Item was deleted")
+        let viewModel = SportPerformanceListViewModel(
+            coordinator: nil,
+            firebaseStoreManager: MockFirebaseStoreManager(),
+            dataPersistenceManager: MockDataPersistenceManager()
+        )
+        let remoteMockItem = try! XCTUnwrap(MockData.performanceData.first { $0.repository == .remote })
+        viewModel.selectedRepository = .all
+        viewModel.$filteredPerformanceCollection
+            .dropFirst()
+            .sink { data in
+                if data.count == 2 {
+                    // Data loaded
+                    expectation.fulfill()
+                } else if data.count == 1 {
+                    // After deleting performance
+                    expectation2.fulfill()
+                }
+            }
+            .store(in: &subscriptions)
+
+        wait(for: [expectation], timeout: 1)
+        XCTAssertTrue(viewModel.filteredPerformanceCollection.contains(remoteMockItem))
+        viewModel.deletePerformance(with: remoteMockItem.id, for: .remote)
+        wait(for: [expectation2], timeout: 1)
+        XCTAssertFalse(viewModel.filteredPerformanceCollection.contains(remoteMockItem))
+        XCTAssertNil(viewModel.alertConfig)
+    }
 }
