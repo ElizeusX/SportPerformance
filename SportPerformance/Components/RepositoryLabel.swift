@@ -36,6 +36,7 @@ struct RepositoryLabel: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     VStack {
         RepositoryLabel(for: .local)

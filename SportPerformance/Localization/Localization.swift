@@ -32,6 +32,7 @@ enum LocalizedString {
     enum Repository {
         static let localTitle: LocalizedStringResource = "Local"
         static let remoteTitle: LocalizedStringResource = "Remote"
+        static let allTitle: LocalizedStringResource = "All"
     }
 
     enum NewSportPerformance {
@@ -51,8 +52,21 @@ enum LocalizedString {
     }
 
     enum SportPerformanceList {
+        static let title: LocalizedStringResource = "Sports Performance"
         static let emptyStateTitle: LocalizedStringResource = "Not found"
-        static let emptyStateMessage: LocalizedStringResource = "The sports performances data is not found."
+        static let emptyStateMessage: LocalizedStringResource = "The sports performance data is not found."
+        static let repositorySegmentPickerText: LocalizedStringResource = "Select repository"
+        static let deleteActionTitle: LocalizedStringResource = "Delete"
+        static let primaryButtonTitle: LocalizedStringResource = "Add new"
     }
 
+    enum TimePicker {
+        static let title: LocalizedStringResource = "Duration:"
+        static let hoursPickerText: LocalizedStringResource = "Hours"
+        static let hoursShortText: LocalizedStringResource = "hr"
+        static let minutesPickerText: LocalizedStringResource = "Hours"
+        static let minutesShortText: LocalizedStringResource = "hr"
+        static let secondsPickerText: LocalizedStringResource = "Hours"
+        static let secondsShortText: LocalizedStringResource = "hr"
+    }
 }

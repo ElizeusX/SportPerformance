@@ -21,7 +21,7 @@ struct SportPerformanceListView: View {
         self._viewModel = StateObject(wrappedValue: viewModel)
         self.progressHudBinding = ProgressHudBinding(state: viewModel.$progressHudState)
         self.navigationPropagation = navigationPropagation
-        self.navigationPropagation.screenTitleSubject.send("Sports Performance")
+        self.navigationPropagation.screenTitleSubject.send(L.SportPerformanceList.title.string())
     }
 
     // MARK: Body
@@ -49,7 +49,10 @@ struct SportPerformanceListView: View {
 // MARK: - Components
 private extension SportPerformanceListView {
     var repositorySegmentPicker: some View {
-        Picker("Select Repository", selection: $viewModel.selectedRepository) {
+        Picker(
+            L.SportPerformanceList.repositorySegmentPickerText.string(),
+            selection: $viewModel.selectedRepository
+        ) {
             ForEach(Repository.allCases, id: \.self) { type in
                 Text(type.title).tag(type)
             }
@@ -82,7 +85,10 @@ private extension SportPerformanceListView {
                             )
                         }
                     } label: {
-                        Label("Delete", systemImage: "trash")
+                        Label(
+                            L.SportPerformanceList.deleteActionTitle.string(),
+                            systemImage: "trash"
+                        )
                     }
                     .tint(.red)
                     .frame(height: 75)
@@ -95,7 +101,7 @@ private extension SportPerformanceListView {
     }
     var primaryButton: PrimaryButton {
         PrimaryButton(
-            title: "Add new",
+            title: L.SportPerformanceList.primaryButtonTitle.string(),
             icon: Icons.runSquare,
             action: viewModel.goToNewSportPerformance
         )

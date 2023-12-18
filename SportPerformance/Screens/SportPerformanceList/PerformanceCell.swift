@@ -8,7 +8,7 @@
 import SwiftUI
 
 // MARK: - ViewModel
-class PerformanceCellViewModel {
+final class PerformanceCellViewModel {
 
     let name: String
     let place: String
@@ -32,7 +32,7 @@ class PerformanceCellViewModel {
 // MARK: - View
 struct PerformanceCell: View {
 
-    let viewModel: PerformanceCellViewModel
+    private let viewModel: PerformanceCellViewModel
 
     // MARK: Init
     init(viewModel: PerformanceCellViewModel) {

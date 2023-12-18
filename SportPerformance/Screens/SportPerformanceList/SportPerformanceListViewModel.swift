@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class SportPerformanceListViewModel: ObservableObject {
+final class SportPerformanceListViewModel: ObservableObject {
 
     private weak var coordinator: PerformanceListCoordinatorDelegate?
     private let firebaseStoreManager: FirebaseStoreManagerProtocol
@@ -61,9 +61,8 @@ private extension SportPerformanceListViewModel {
             do {
                 let localData = try dataPersistenceManager.getPerformanceCollection()
                 let remoteData = try await firebaseStoreManager.getPerformanceCollection()
-                let combinedAndSortedData = (localData + remoteData).sorted { $0.date > $1.date }
+                performanceCollection = (localData + remoteData).sorted { $0.date > $1.date }
                 await MainActor.run {
-                    performanceCollection = combinedAndSortedData
                     progressHudState = .hideProgress
                 }
                 subscriptions.removeAll()

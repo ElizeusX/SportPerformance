@@ -19,7 +19,7 @@ enum Repository: CaseIterable, Codable {
         case .remote:
             Icons.remote
         case .all:
-            Icons.run
+            preconditionFailure("Not used")
         }
     }
     var color: Color {
@@ -29,7 +29,7 @@ enum Repository: CaseIterable, Codable {
         case .remote:
                 .blue.opacity(0.7)
         case .all:
-                .black
+            preconditionFailure("Not used")
         }
     }
     var title: String {
@@ -39,7 +39,7 @@ enum Repository: CaseIterable, Codable {
         case .remote:
             L.Repository.remoteTitle.string()
         case .all:
-            "All"
+            L.Repository.allTitle.string()
         }
     }
 }

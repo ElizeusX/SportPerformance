@@ -18,6 +18,7 @@ struct PrimaryTextField: View {
         !warningMessage().isEmpty && text.isEmpty
     }
 
+    // MARK: Init
     init(
         title: String,
         placeholder: String,
@@ -35,6 +36,7 @@ struct PrimaryTextField: View {
         self.warningMessage = warningMessage
     }
 
+    // MARK: Body
     var body: some View {
         VStack(alignment: .leading) {
             textField
@@ -66,6 +68,7 @@ private extension PrimaryTextField {
     }
 }
 
+// MARK: - Preview
 #Preview {
     PrimaryTextField(
         title: "Name:",

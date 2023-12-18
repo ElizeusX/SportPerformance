@@ -49,24 +49,24 @@ struct TimePicker: View {
 private extension TimePicker {
     var timePicker: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("Duration:")
+            Text(L.TimePicker.title)
                 .font(.caption)
             HStack {
-                Picker("Hours", selection: $selectedHours) {
+                Picker(L.TimePicker.hoursPickerText.string(), selection: $selectedHours) {
                     ForEach(hrRange, id: \.self) { hour in
-                        Text("\(hour) hr")
+                        Text("\(hour) \(L.TimePicker.hoursShortText)")
                             .tag(hour)
                     }
                 }
-                Picker("Minutes", selection: $selectedMinutes) {
+                Picker(L.TimePicker.minutesPickerText.string(), selection: $selectedMinutes) {
                     ForEach(minOrSecRange, id: \.self) { minute in
-                        Text("\(minute) min")
+                        Text("\(minute) \(L.TimePicker.minutesShortText)")
                             .tag(minute)
                     }
                 }
-                Picker("Seconds", selection: $selectedSeconds) {
+                Picker(L.TimePicker.secondsPickerText.string(), selection: $selectedSeconds) {
                     ForEach(minOrSecRange, id: \.self) { second in
-                        Text("\(second) sec")
+                        Text("\(second) \(L.TimePicker.secondsShortText)")
                             .tag(second)
                     }
                 }

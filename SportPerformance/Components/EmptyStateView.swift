@@ -12,6 +12,7 @@ struct EmptyStateView: View {
     private let title: LocalizedStringResource
     private let message: LocalizedStringResource
 
+    // MARK: Init
     init(
         title: LocalizedStringResource,
         message: LocalizedStringResource
@@ -20,6 +21,7 @@ struct EmptyStateView: View {
         self.message = message
     }
 
+    // MARK: Body
     var body: some View {
         VStack {
             Text(title)
@@ -32,6 +34,7 @@ struct EmptyStateView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     EmptyStateView(
         title: "Not found",

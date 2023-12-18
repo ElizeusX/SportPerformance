@@ -1,16 +1,23 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%lld hr" : {
-
-    },
-    "%lld min" : {
-
-    },
-    "%lld sec" : {
-
+    "%lld %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld %2$@"
+          }
+        }
+      }
     },
     "Add" : {
+
+    },
+    "Add new" : {
+
+    },
+    "All" : {
 
     },
     "An error occurred while trying to delete the data from your device. Please try again later." : {
@@ -46,13 +53,13 @@
     "Hours" : {
 
     },
+    "hr" : {
+
+    },
     "Key" : {
       "extractionState" : "manual"
     },
     "Local" : {
-
-    },
-    "Minutes" : {
 
     },
     "Name:" : {
@@ -85,16 +92,19 @@
     "Save Remotely" : {
 
     },
-    "Seconds" : {
-
-    },
-    "Select Repository" : {
+    "Select repository" : {
 
     },
     "Select the duration" : {
 
     },
+    "Sports Performance" : {
+
+    },
     "Stadium" : {
+
+    },
+    "The sports performance data is not found." : {
 
     },
     "The sports performances data is not found." : {

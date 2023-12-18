@@ -12,6 +12,7 @@ struct WarningMessage: View {
     private let warningMessage: String
     private let showWarning: Bool
 
+    // MARK: Init
     init(
         warningMessage: String,
         showWarning: Bool
@@ -20,6 +21,7 @@ struct WarningMessage: View {
         self.showWarning = showWarning
     }
 
+    // MARK: Body
     var body: some View {
         if showWarning {
             HStack {
@@ -36,6 +38,7 @@ struct WarningMessage: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     WarningMessage(
         warningMessage: "Warning message",

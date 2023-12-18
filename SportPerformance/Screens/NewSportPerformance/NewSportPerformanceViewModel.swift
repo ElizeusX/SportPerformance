@@ -33,7 +33,7 @@ protocol NewSportPerformanceDelegate: AnyObject {
     func updatePerformanceList()
 }
 
-class NewSportPerformanceViewModel: ObservableObject {
+final class NewSportPerformanceViewModel: ObservableObject {
 
     private weak var coordinator: NewSportPerformanceListCoordinatorDelegate?
     private let firebaseStoreManager: FirebaseStoreManagerProtocol
