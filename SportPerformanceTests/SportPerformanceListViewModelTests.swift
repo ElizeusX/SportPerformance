@@ -41,7 +41,7 @@ final class SportPerformanceListViewModelTests: XCTestCase {
         subscriptions.removeAll()
     }
 
-    func testCreateSportPerformanceListWithSuccess() {
+    func testLoadFilteredDataWithSuccess() {
         let expectation = XCTestExpectation(description: "Filtered data should be loaded successfully")
         let viewModel = SportPerformanceListViewModel(
             coordinator: nil,
@@ -62,7 +62,7 @@ final class SportPerformanceListViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.alertConfig)
     }
 
-    func testFilterWithLocal() {
+    func testLoadFilteredLocalDataWithSuccess() {
         let expectation = XCTestExpectation(description: "Filtered data should be loaded successfully")
         let viewModel = SportPerformanceListViewModel(
             coordinator: nil,
@@ -85,7 +85,7 @@ final class SportPerformanceListViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.alertConfig)
     }
 
-    func testFilterWithRemote() {
+    func testLoadFilteredRemoteDataWithSuccess() {
         let expectation = XCTestExpectation(description: "Filtered data should be loaded successfully")
         let viewModel = SportPerformanceListViewModel(
             coordinator: nil,
