@@ -37,9 +37,9 @@ protocol NewSportPerformanceDelegate: AnyObject {
 final class NewSportPerformanceViewModel: ObservableObject {
 
     private weak var coordinator: NewSportPerformanceListCoordinatorDelegate?
+    private weak var delegate: NewSportPerformanceDelegate?
     private let firebaseStoreManager: FirebaseStoreManagerProtocol
     private let dataPersistenceManager: DataPersistenceManagerProtocol
-    private let delegate: NewSportPerformanceDelegate?
 
     @Published var selectedHours = 0
     @Published var selectedMinutes = 0
@@ -56,14 +56,14 @@ final class NewSportPerformanceViewModel: ObservableObject {
     // MARK: Init
     init(
         coordinator: NewSportPerformanceListCoordinatorDelegate?,
+        delegate: NewSportPerformanceDelegate?,
         firebaseStoreManager: FirebaseStoreManagerProtocol,
-        dataPersistenceManager: DataPersistenceManagerProtocol,
-        delegate: NewSportPerformanceDelegate?
+        dataPersistenceManager: DataPersistenceManagerProtocol
     ) {
         self.coordinator = coordinator
+        self.delegate = delegate
         self.firebaseStoreManager = firebaseStoreManager
         self.dataPersistenceManager = dataPersistenceManager
-        self.delegate = delegate
     }
 
     // MARK: Methods
