@@ -48,9 +48,9 @@ extension MainCoordinator: PerformanceListCoordinatorDelegate {
         let view = NewSportPerformanceView(
             viewModel: NewSportPerformanceViewModel(
                 coordinator: self,
+                delegate: delegate,
                 firebaseStoreManager: firebaseStoreManager,
-                dataPersistenceManager: dataPersistenceManager,
-                delegate: delegate
+                dataPersistenceManager: dataPersistenceManager
             ),
             navigationPropagation: NavigationPropagation()
         )

@@ -97,9 +97,9 @@ private extension NewSportPerformanceView {
     NewSportPerformanceView(
         viewModel: NewSportPerformanceViewModel(
             coordinator: nil,
+            delegate: nil,
             firebaseStoreManager: MockFirebaseStoreManager(),
-            dataPersistenceManager: MockDataPersistenceManager(),
-            delegate: nil
+            dataPersistenceManager: MockDataPersistenceManager()
         ),
         navigationPropagation: NavigationPropagation()
     )
