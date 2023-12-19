@@ -30,7 +30,8 @@ enum PerformanceTextFieldType: CaseIterable {
 }
 
 protocol NewSportPerformanceDelegate: AnyObject {
-    func updatePerformanceList()
+    func updateLocallyPerformanceList()
+    func updateRemotelyPerformanceList()
 }
 
 final class NewSportPerformanceViewModel: ObservableObject {
@@ -78,7 +79,8 @@ final class NewSportPerformanceViewModel: ObservableObject {
             switch result {
             case .success:
                 self?.progressHudState = .showSuccess
-                self?.updateListAndFinish()
+                self?.delegate?.updateRemotelyPerformanceList()
+                self?.coordinator?.finishNewSportPerformance()
             case .failure(let error):
                 self?.showAlert(for: error)
                 self?.progressHudState = .hideProgress
@@ -94,7 +96,8 @@ final class NewSportPerformanceViewModel: ObservableObject {
         )
         do {
             try dataPersistenceManager.savePerformance(performance: performance)
-            updateListAndFinish()
+            delegate?.updateLocallyPerformanceList()
+            coordinator?.finishNewSportPerformance()
         } catch {
             showAlert(for: error)
         }
@@ -163,11 +166,6 @@ private extension NewSportPerformanceViewModel {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss"
         return formatter.string(from: date)
-    }
-
-    func updateListAndFinish() {
-        delegate?.updatePerformanceList()
-        coordinator?.finishNewSportPerformance()
     }
 
     func showAlert(for error: Error) {

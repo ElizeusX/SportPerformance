@@ -35,7 +35,8 @@ final class SportPerformanceListViewModel: ObservableObject {
         self.coordinator = coordinator
         self.firebaseStoreManager = firebaseStoreManager
         self.dataPersistenceManager = dataPersistenceManager
-        self.getPerformanceCollection()
+        self.getLocalPerformanceCollection()
+        self.getRemotePerformanceCollection()
     }
 
     // MARK: Methods
@@ -55,18 +56,28 @@ final class SportPerformanceListViewModel: ObservableObject {
 // MARK: - Private methods
 private extension SportPerformanceListViewModel {
 
-    func getPerformanceCollection() {
+    func getLocalPerformanceCollection() {
+        do {
+            let data = try dataPersistenceManager.getPerformanceCollection()
+            performanceCollection.removeAll(where: { $0.repository == .local })
+            performanceCollection += data
+            setupFilter()
+        } catch {
+            showAlert(for: error)
+        }
+    }
+
+    func getRemotePerformanceCollection() {
         progressHudState = .showProgress
         Task {
             do {
-                let localData = try dataPersistenceManager.getPerformanceCollection()
-                let remoteData = try await firebaseStoreManager.getPerformanceCollection()
-                performanceCollection = (localData + remoteData).sorted { $0.date > $1.date }
+                let data = try await firebaseStoreManager.getPerformanceCollection()
+                performanceCollection.removeAll(where: { $0.repository == .remote })
+                performanceCollection += data
+                setupFilter()
                 await MainActor.run {
                     progressHudState = .hideProgress
                 }
-                subscriptions.removeAll()
-                setupFilter()
             } catch {
                 await MainActor.run {
                     showAlert(for: error)
@@ -91,14 +102,18 @@ private extension SportPerformanceListViewModel {
     }
 
     func setupFilter() {
+        subscriptions.removeAll() // In cases where the filter needs to be updated.
         $selectedRepository
             .receive(on: DispatchQueue.main)
             .sink { [weak self] type in
                 guard let self else { return }
                 if type == .all {
                     filteredPerformanceCollection = performanceCollection
+                        .sorted { $0.date > $1.date }
                 } else {
-                    filteredPerformanceCollection = performanceCollection.filter { $0.repository == type }
+                    filteredPerformanceCollection = performanceCollection
+                        .filter({ $0.repository == type })
+                        .sorted { $0.date > $1.date }
                 }
             }
             .store(in: &subscriptions)
@@ -144,7 +159,11 @@ private extension SportPerformanceListViewModel {
 // MARK: - NewSportPerformanceDelegate
 extension SportPerformanceListViewModel: NewSportPerformanceDelegate {
 
-    func updatePerformanceList() {
-        getPerformanceCollection()
+    func updateLocallyPerformanceList() {
+        getLocalPerformanceCollection()
+    }
+
+    func updateRemotelyPerformanceList() {
+        getRemotePerformanceCollection()
     }
 }
