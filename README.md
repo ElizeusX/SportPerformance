@@ -19,10 +19,13 @@ Sports Performance Tracker understands the importance of flexibility. Choose bet
 The app boasts a clean and intuitive design, making it easy for users of all levels to navigate effortlessly. The streamlined user interface ensures a seamless experience, allowing you to focus on your sports activities without any distractions.
 
 ## Using Tools and Libraries
-### Network:
+### Networking:
 - <a href="https://github.com/firebase/firebase-ios-sdk" rel="nofollow">Firebase</a>
-### Tools:
+### Progress indicator:
 - <a href="https://github.com/relatedcode/ProgressHUD" rel="nofollow">ProgressHUD</a>
+### Reactive programming:
+- <a href="https://developer.apple.com/documentation/combine" rel="nofollow">Combine</a>
+### Data storage:
+- <a href="https://developer.apple.com/documentation/coredata/" rel="nofollow">CoreData</a>
 ### Tests:
 - <a href="https://developer.apple.com/documentation/xctest" rel="nofollow">XCTest</a>
-
