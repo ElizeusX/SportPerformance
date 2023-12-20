@@ -60,22 +60,14 @@ final class SportPerformanceListViewModelTests: XCTestCase {
     }
 
     func testLoadFilteredDataFromDataPersistenceWithError() {
-        let expectation = XCTestExpectation(description: "Filtered data should not be loaded")
         let viewModel = SportPerformanceListViewModel(
             coordinator: nil,
             firebaseStoreManager: MockFirebaseStoreManager(),
             dataPersistenceManager: MockDataPersistenceManagerWithError()
         )
         viewModel.selectedRepository = .local
-        viewModel.$alertConfig
-            .dropFirst()
-            .sink { alert in
-                XCTAssertEqual(alert?.message, DataPersistenceError.errorLoadingData.message)
-                expectation.fulfill()
-            }
-            .store(in: &subscriptions)
 
-        wait(for: [expectation], timeout: 1)
+        XCTAssertEqual(viewModel.alertConfig?.message, DataPersistenceError.errorLoadingData.message)
         XCTAssertEqual(viewModel.filteredPerformanceCollection, [])
     }
 

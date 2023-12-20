@@ -22,9 +22,8 @@ final class NewSportPerformanceViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Progress must be success")
         let viewModel = NewSportPerformanceViewModel(
             coordinator: nil,
-            firebaseStoreManager: MockFirebaseStoreManager(),
-            dataPersistenceManager: MockDataPersistenceManager(),
-            delegate: nil
+            delegate: nil, firebaseStoreManager: MockFirebaseStoreManager(),
+            dataPersistenceManager: MockDataPersistenceManager()
         )
         viewModel.$progressHudState
             .dropFirst()
@@ -48,9 +47,8 @@ final class NewSportPerformanceViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Progress must be success")
         let viewModel = NewSportPerformanceViewModel(
             coordinator: nil,
-            firebaseStoreManager: MockFirebaseStoreManagerWithError(),
-            dataPersistenceManager: MockDataPersistenceManager(),
-            delegate: nil
+            delegate: nil, firebaseStoreManager: MockFirebaseStoreManagerWithError(),
+            dataPersistenceManager: MockDataPersistenceManager()
         )
         viewModel.$alertConfig
             .dropFirst()
@@ -70,9 +68,8 @@ final class NewSportPerformanceViewModelTests: XCTestCase {
     func testSaveLocalWithSuccess() {
         let viewModel = NewSportPerformanceViewModel(
             coordinator: nil,
-            firebaseStoreManager: MockFirebaseStoreManager(),
-            dataPersistenceManager: MockDataPersistenceManager(),
-            delegate: nil
+            delegate: nil, firebaseStoreManager: MockFirebaseStoreManager(),
+            dataPersistenceManager: MockDataPersistenceManager()
         )
         viewModel.setTextFieldText(for: .name, text: "Name")
         viewModel.setTextFieldText(for: .place, text: "Place")
@@ -85,9 +82,8 @@ final class NewSportPerformanceViewModelTests: XCTestCase {
     func testSaveLocalWithError() {
         let viewModel = NewSportPerformanceViewModel(
             coordinator: nil,
-            firebaseStoreManager: MockFirebaseStoreManager(),
-            dataPersistenceManager: MockDataPersistenceManagerWithError(),
-            delegate: nil
+            delegate: nil, firebaseStoreManager: MockFirebaseStoreManager(),
+            dataPersistenceManager: MockDataPersistenceManagerWithError()
         )
         viewModel.setTextFieldText(for: .name, text: "Name")
         viewModel.setTextFieldText(for: .place, text: "Place")
@@ -100,9 +96,8 @@ final class NewSportPerformanceViewModelTests: XCTestCase {
     func testWarningMessageForName() {
         let viewModel = NewSportPerformanceViewModel(
             coordinator: nil,
-            firebaseStoreManager: MockFirebaseStoreManager(),
-            dataPersistenceManager: MockDataPersistenceManager(),
-            delegate: nil
+            delegate: nil, firebaseStoreManager: MockFirebaseStoreManager(),
+            dataPersistenceManager: MockDataPersistenceManager()
         )
         viewModel.setTextFieldText(for: .name, text: "")
         viewModel.setTextFieldText(for: .place, text: "Place")
@@ -115,9 +110,8 @@ final class NewSportPerformanceViewModelTests: XCTestCase {
     func testWarningMessageForPlace() {
         let viewModel = NewSportPerformanceViewModel(
             coordinator: nil,
-            firebaseStoreManager: MockFirebaseStoreManager(),
-            dataPersistenceManager: MockDataPersistenceManager(),
-            delegate: nil
+            delegate: nil, firebaseStoreManager: MockFirebaseStoreManager(),
+            dataPersistenceManager: MockDataPersistenceManager()
         )
         viewModel.setTextFieldText(for: .name, text: "Name")
         viewModel.setTextFieldText(for: .place, text: "")
@@ -130,9 +124,8 @@ final class NewSportPerformanceViewModelTests: XCTestCase {
     func testWarningMessageForDuration() {
         let viewModel = NewSportPerformanceViewModel(
             coordinator: nil,
-            firebaseStoreManager: MockFirebaseStoreManager(),
-            dataPersistenceManager: MockDataPersistenceManager(),
-            delegate: nil
+            delegate: nil, firebaseStoreManager: MockFirebaseStoreManager(),
+            dataPersistenceManager: MockDataPersistenceManager()
         )
         viewModel.setTextFieldText(for: .name, text: "Name")
         viewModel.setTextFieldText(for: .place, text: "Place")
